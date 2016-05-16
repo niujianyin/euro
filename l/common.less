@@ -1,0 +1,278 @@
+@import url('./constant.less');
+@import url('./reset.less');
+@import url('./top.less');
+@import url('./top_account.less');
+@import url('./datepicker3.less');
+
+// header.css
+.wrap1000{ width: 1000px; margin: 0 auto; position: relative;}
+.sina-top-bar-logo{
+  float: left;
+  height: 36px;
+  width: 105px;
+  background: url(../i/logo.png) no-repeat;
+}
+#header{ height: 390px; overflow: hidden;}
+#header_t{
+  height: 220px;
+  background: url(../i/bg_header_t.jpg) no-repeat center top;
+}
+#header_b{
+  height: 170px;
+  background: url(../i/bg_header_b.jpg) no-repeat center top;
+}
+#nav{
+  height: 50px;
+  padding-left: 6px;
+  cursor: pointer;
+}
+#nav li{
+  float: left;
+}
+#nav li a,#nav li a:visited{
+  float: left;
+  font-size: 18px;
+  color: #fff;
+  padding: 0 16px;
+  height: 50px;
+  line-height: 50px;
+  overflow: hidden;
+}
+#nav li a:hover{
+  color: #dcecff;
+}
+#match{
+  height: 120px;
+  position: relative;
+  padding: 4px 11px; 
+}
+.match_mask_line{
+  position: absolute;
+  top: 4px;
+  left: 11px;
+  height: 112px;
+  width: 1px;
+  font-size: 0px;
+  background: #fff;
+  z-index: 1;
+}
+#match_pre{
+  position: absolute;
+  left: -1px;
+  top: 40px;
+  z-index: 2;
+  width: 25px;
+  height: 40px;
+  content: '';
+  background: url(../i/icon_arrow_l.png) no-repeat 6px 2px;
+}
+#match_next{
+  position: absolute;
+  right: 0;
+  top: 40px;
+  z-index: 2;
+  width: 25px;
+  height: 40px;
+  content: '';
+  background: url(../i/icon_arrow_r.png) no-repeat 0px 2px;
+}
+#match_list{
+  width: 978px;
+  height: 112px;
+}
+.item{
+  float: left;
+  width: 163px;
+  height: 112px;
+  position: relative;
+  border-left: 1px solid #e9f3eb;
+}
+#match_list .first{
+  border: 0 none;
+}
+.item_t{
+  height: 34px;
+  background: #effef2;
+}
+.item_t_status{
+  float: left;
+  width: 54px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 12px;
+  color: #fff;
+  padding-left: 12px;
+  font-weight: bold;
+}
+.item_t_icon{
+  float: left;
+  width: 14px;
+  height: 34px;
+}
+.item_t_time{
+  float: left;
+  width: 94px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 12px;
+  color: @color1;
+  padding-left: 6px;
+}
+.item_c{
+  height: 50px;
+  padding-top: 10px;
+  position: relative;
+  line-height: 40px;
+}
+.item_c_home{
+  float: left;
+  width: 67px;
+  padding-left: 17px;
+  text-align: center;
+  font-size: 26px; 
+  height: 40px;
+  position: relative;
+}
+.c_red{
+  color: #e84553;
+}
+.item_c_vs{
+  width: 28px;
+  height: 16px;
+  background: url(../i/icon_vs.png?__sprite) no-repeat;
+  float: left;
+  margin-top: 13px;
+}
+.item_c_guest{
+  float: left;
+  width: 67px;
+  padding-right: 17px;
+  text-align: center;
+  font-size: 26px; 
+  height: 40px;
+  position: relative;
+}
+.item_c_line{
+  position: absolute;
+  left: 28px;
+  top: 18px;
+  width: 24px;
+  height: 2px;
+  background: #434547;
+}
+.item_c_guest .item_c_line{
+  left: 14px;
+}
+.item_b{
+  height: 20px;
+  line-height: 20px;
+}
+.item_b_home{
+  float: left;
+  width: 67px;
+  padding-left: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+.item_b_vs{
+  float: left;
+  width: 28px;
+  height: 20px;
+}
+.item_b_guest{
+  float: left;
+  width: 67px;
+  padding-right: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.status_over .item_t_status{
+  background: #c0cac2;
+}
+.status_duing .item_t_status{
+  background: #44c471;
+}
+.status_pre .item_t_status{
+  background: #2883ea;
+}
+
+.status_over .item_t_icon{
+  background: url(../i/icon_over.png?__sprite) no-repeat;
+}
+.status_duing .item_t_icon{
+  background: url(../i/icon_during.png?__sprite) no-repeat;
+}
+.status_pre .item_t_icon{
+  background: url(../i/icon_pre.png?__sprite) no-repeat;
+}
+// footer.css
+#footer{
+  height: 200px;
+  background: url(../i/bg_footer.jpg) no-repeat center top;
+  box-sizing: border-box;
+}
+.footer_relate_link{ 
+  padding-top: 38px;
+  height: 80px; 
+  line-height: 40px; 
+  text-align: center; 
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.footer_relate_link a,.footer_relate_link a:visited{ color: #fff; cursor: pointer;}
+.footer_relate_link a:hover{ color: #fff;}
+.footer_relate_link span{ padding: 10px; color: #fff;}
+
+.footer_copyright{ 
+  padding-top:15px;
+  line-height: 32px; 
+  text-align: center;
+  height: 47px;
+  color: #fff;
+  font-size: 14px;
+}
+.footer_sub_tips{
+  line-height: 32px; 
+  text-align: center;
+  height: 32px;
+  color: #fff;
+  font-size: 14px;
+}
+.plr10{padding: 0 10px;}
+
+
+// container.css
+#container{
+  min-height: 500px;
+  padding-bottom: 120px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
