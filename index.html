@@ -8,7 +8,7 @@
 </head>
 <body>
   <script type="text/javascript">
-    window.__curdate = '2016-06-11';
+    window.__curdate = '2016-06-21';
   </script>
   <!-- 头部 html start -->
   <link rel="import" href="h/header.html?__inline">
@@ -19,6 +19,7 @@
   <![endif]-->
   <!-- 登录组件js -->
   <script type="text/javascript" src="./j/lib/lib_top.js"></script>
+  <script type="text/javascript" src="./j/sinaLogin.js"></script>
   <!-- 头部 html start -->
 
   <!-- 内容主体 html start -->
@@ -162,7 +163,9 @@
       </div>
     </div>
     <!-- secondSection -->
+    
     <div class="section clearfix smart" id="secondSection">
+      <a name="smart_alink_00" id="alink_00"></a> 
       <div class="smart_head">
         <div class="smart_logo"></div>
         <div class="smart_head_link">
@@ -183,61 +186,392 @@
         </div>
       </div>
       <div class="smart_main" id="smart_main">
-        <div class="smart_box">
+        <!-- smart_box_00 -->
+        <div class="smart_box" id="smart_box_00">
           <div class="smart_match">
-            <div class="smart_mh">
-              <div class="smart_mh_flag">
-                <img src="./i/pic/smart_flag_01.png" alt="home_falg">
-              </div>
-              <div class="smart_mh_right">
-                <div class="smart_mh_name">法国</div>
-                <div class="smart_mh_odds">
-                  <span class="smart_mh_odds_txt">赔<br/>率</span>
-                  1.98
+            <script type="text/html" id="smart_match_tmp">
+              <div class="smart_mh">
+                <div class="smart_mh_flag">
+                  <img src="{{flag(data.Team1Id)}}" alt="{{data.Team1}}">
+                </div>
+                <div class="smart_mh_right">
+                  <div class="smart_mh_name" id="smart_mh_name_{{data.livecast_id}}">{{data.Team1}}</div>
                 </div>
               </div>
-            </div>
-            <div class="smart_mg">
-              <div class="smart_mg_flag">
-                <img src="./i/pic/smart_flag_02.png" alt="guest_falg">
-              </div>
-              <div class="smart_mg_right">
-                <div class="smart_mg_name">德国</div>
-                <div class="smart_mg_odds">
-                  <span class="smart_mg_odds_txt">赔<br/>率</span>
-                  1.90
+              <div class="smart_mg">
+                <div class="smart_mg_flag">
+                  <img src="{{flag(data.Team2Id)}}" alt="{{data.Team2}}">
+                </div>
+                <div class="smart_mg_right">
+                  <div class="smart_mg_name" id="smart_mg_name_{{data.livecast_id}}">{{data.Team2}}</div>
                 </div>
               </div>
-            </div>
-            <div class="smart_mc">
-              <div class="smart_mc_judge smart_toggle_pre smart_mc_win"></div>
-              <div class="smart_mc_date">2016-06-08 <span class="plr6"></span>07:15</div>
-              <div class="smart_mc_type_box">
-                <div class="smart_score_home smart_toggle_next">
-                  50%
-                </div>
-                <div class="smart_score_guest smart_toggle_next">
-                  50%
-                </div>
-                盘口：<span class="smart_mc_type">半球</span>
+              <div class="smart_mc" id="smart_{{data.livecast_id}}" data-idx={{data.idx}}>
               </div>
-              <div class="smart_purchase smart_toggle_pre">
-                <a href="javascript:;" class="btn_purchase"></a>
+              <div class="smart_mtype" id="smart_mtype_{{data.livecast_id}}">
+                <div class="smart_mtype_item selected" data-type="z_sx">亚盘</div>
+                <div class="smart_mtype_item smart_mtype_item_c" data-type="z_spf">胜平负</div>
+                <div class="smart_mtype_item" data-type="z_dx">大小球</div>
               </div>
-              <div class="smart_percent smart_toggle_next">
-                <div class="smart_percent_red"></div>
-                <div class="smart_percent_blue">
-                  <div class="smart_percent_br"></div>
-                  <div class="smart_percent_bc"></div>
-                  <div class="smart_percent_bl"></div>
-                </div>
-              </div>
-              <div class="smart_mc_bottom">
-                <span class="smart_toggle_pre">欧洲杯人工智能预测</span>
-                <a href="#" target="_blank" class="btn_datamodel"></a>
-              </div>
-            </div>
+            </script>
           </div>
+          <!-- 赛前 上下盘（亚盘）预测z_sx -->
+          <script type="text/html" id="smart_match_pre_z_sx_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">赔<br/>率</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">赔<br/>率</span>
+              {{data.odds.o2}}
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              盘口：<span class="smart_mc_type">{{data.odds.o3_cn}}</span>
+            </div>
+            <div class="smart_purchase" id="smart_get_{{data.livecast_id}}">
+              <a href="javascript:;" class="btn_purchase" id="smart_purchase_{{data.livecast_id}}" data-id="{{data.livecast_id}}" data-pankou="{{data.odds.o3}}"></a>
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <script type="text/html" id="smart_match_pre_z_sx_no_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">赔<br/>率</span>
+              暂无
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">赔<br/>率</span>
+              暂无
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              盘口：暂无
+            </div>
+            <div class="smart_purchase" id="smart_get_{{data.livecast_id}}">
+              <a href="javascript:;" class="btn_purchase_no" id="smart_purchase_{{data.livecast_id}}" data-id="{{data.livecast_id}}" data-pankou="{{data.odds.o3}}"></a>
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <script type="text/html" id="smart_match_pre_z_sx_haspay_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">赔<br/>率</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">赔<br/>率</span>
+              {{data.odds.o2}}
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              <div class="smart_score_home">
+                {{data.per1}}<span class="smart_score_txt">赢盘</span>
+              </div>
+              <div class="smart_score_guest">
+                {{data.per3}}<span class="smart_score_txt">输盘</span>
+              </div>
+              盘口：<span class="smart_mc_type">{{data.odds.o3_cn}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              {{ if data.nodata}}
+                <div class="smart_percent_nodata">{{data.nodata}}</div>
+              {{/if}}
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <!-- 赛中 上下盘预测z_sx -->
+          <script type="text/html" id="smart_match_in_z_sx_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">赔<br/>率</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">赔<br/>率</span>
+              {{data.odds.o2}}
+            </div>
+            <div class="smart_mc_score">比分<em>{{data.hscore}} : {{data.gscore}}</em></div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              <div class="smart_score_home">
+                {{data.per1}} 赢盘
+              </div>
+              <div class="smart_score_guest">
+                {{data.per3}} 输盘
+              </div>
+              盘口：<span class="smart_mc_type">{{data.odds.o3_cn}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <!-- 赛后 上下盘预测z_sx -->
+          <script type="text/html" id="smart_match_end_z_sx_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">赔<br/>率</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">赔<br/>率</span>
+              {{data.odds.o2}}
+            </div>
+            <div class="smart_mc_judge {{data.forecast}}"></div>
+            <div class="smart_mc_score">比分<em>{{data.hscore}} : {{data.gscore}}</em></div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              <div class="smart_score_home">
+                {{data.per1}} 赢盘
+              </div>
+              <div class="smart_score_guest">
+                {{data.per3}} 输盘
+              </div>
+              盘口：<span class="smart_mc_type">{{data.odds.o3_cn}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+
+          <!-- 赛前 胜平负预测z_spf -->
+          <script type="text/html" id="smart_match_pre_z_spf_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">胜<br/>赔</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">负<br/>赔</span>
+              {{data.odds.o3}}
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              平赔：<span class="smart_mc_type">{{data.odds.o2}}</span>
+            </div>
+            <div class="smart_purchase" id="smart_get_{{data.livecast_id}}">
+              <a href="javascript:;" class="btn_purchase" id="smart_purchase_{{data.livecast_id}}" data-id="{{data.livecast_id}}" data-pankou=""></a>
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <script type="text/html" id="smart_match_pre_z_spf_no_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">胜<br/>赔</span>
+              暂无
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">负<br/>赔</span>
+              暂无
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              平赔：暂无
+            </div>
+            <div class="smart_purchase" id="smart_get_{{data.livecast_id}}">
+              <a href="javascript:;" class="btn_purchase_no" id="smart_purchase_{{data.livecast_id}}" data-id="{{data.livecast_id}}" data-pankou="{{data.odds.o3}}"></a>
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <script type="text/html" id="smart_match_pre_z_spf_haspay_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">胜<br/>赔</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">负<br/>赔</span>
+              {{data.odds.o3}}
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box smart_mc_type_spf" id="smart_type_{{data.livecast_id}}">
+              平赔：<span class="smart_mc_type">{{data.odds.o2}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              {{ if data.nodata}}
+                <div class="smart_percent_nodata">{{data.nodata}}</div>
+              {{/if}}
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <!-- 赛中 胜平负预测z_spf -->
+          <script type="text/html" id="smart_match_in_z_spf_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">胜<br/>赔</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">负<br/>赔</span>
+              {{data.odds.o3}}
+            </div>
+            <div class="smart_mc_score">比分<em>{{data.hscore}} : {{data.gscore}}</em></div>
+            <div class="smart_mc_type_box smart_mc_type_spf" id="smart_type_{{data.livecast_id}}">
+              平赔：<span class="smart_mc_type">{{data.odds.o2}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <!-- 赛后 胜平负预测z_spf -->
+          <script type="text/html" id="smart_match_end_z_spf_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">胜<br/>赔</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">负<br/>赔</span>
+              {{data.odds.o3}}
+            </div>
+            <div class="smart_mc_judge {{data.forecast}}"></div>
+            <div class="smart_mc_score">比分<em>{{data.hscore}} : {{data.gscore}}</em></div>
+            <div class="smart_mc_type_box smart_mc_type_spf" id="smart_type_{{data.livecast_id}}">
+              平赔：<span class="smart_mc_type">{{data.odds.o2}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+
+          <!-- 赛前 大小球预测z_dx -->
+          <script type="text/html" id="smart_match_pre_z_dx_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">大<br/>球</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">小<br/>球</span>
+              {{data.odds.o2}}
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              盘口：<span class="smart_mc_type">{{data.odds.o3_cn}}</span>
+            </div>
+            <div class="smart_purchase" id="smart_get_{{data.livecast_id}}">
+              <a href="javascript:;" class="btn_purchase" id="smart_purchase_{{data.livecast_id}}" data-id="{{data.livecast_id}}" data-pankou="{{data.odds.o3}}"></a>
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <script type="text/html" id="smart_match_pre_z_dx_no_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">大<br/>球</span>
+              暂无
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">小<br/>球</span>
+              暂无
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              盘口：暂无
+            </div>
+            <div class="smart_purchase" id="smart_get_{{data.livecast_id}}">
+              <a href="javascript:;" class="btn_purchase_no" id="smart_purchase_{{data.livecast_id}}" data-id="{{data.livecast_id}}" data-pankou="{{data.odds.o3}}"></a>
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <script type="text/html" id="smart_match_pre_z_dx_haspay_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">大<br/>球</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">小<br/>球</span>
+              {{data.odds.o2}}
+            </div>
+            <div class="smart_mc_date" id="smart_mc_date_{{data.livecast_id}}">{{data.date}} <span class="plr6"></span>{{data.time}}</div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              <div class="smart_score_home">
+                {{data.per1}}<span class="smart_score_txt">大球</span>
+              </div>
+              <div class="smart_score_guest">
+                {{data.per3}}<span class="smart_score_txt">小球</span>
+              </div>
+              盘口：<span class="smart_mc_type">{{data.odds.o3_cn}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              {{ if data.nodata}}
+                <div class="smart_percent_nodata">{{data.nodata}}</div>
+              {{/if}}
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <!-- 赛中 大小球预测z_dx -->
+          <script type="text/html" id="smart_match_in_z_dx_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">大<br/>球</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">小<br/>球</span>
+              {{data.odds.o2}}
+            </div>
+            <div class="smart_mc_score">比分<em>{{data.hscore}} : {{data.gscore}}</em></div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              <div class="smart_score_home">
+                {{data.per1}}<span class="smart_score_txt">大球</span>
+              </div>
+              <div class="smart_score_guest">
+                {{data.per3}}<span class="smart_score_txt">小球</span>
+              </div>
+              盘口：<span class="smart_mc_type">{{data.odds.o3_cn}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+          <!-- 赛后 大小球预测z_dx -->
+          <script type="text/html" id="smart_match_end_z_dx_tmp">
+            <div class="smart_mh_odds">
+              <span class="smart_mh_odds_txt">大<br/>球</span>
+              {{data.odds.o1}}
+            </div>
+            <div class="smart_mg_odds">
+              <span class="smart_mg_odds_txt">小<br/>球</span>
+              {{data.odds.o2}}
+            </div>
+            <div class="smart_mc_judge {{data.forecast}}"></div>
+            <div class="smart_mc_score">比分<em>{{data.hscore}} : {{data.gscore}}</em></div>
+            <div class="smart_mc_type_box" id="smart_type_{{data.livecast_id}}">
+              <div class="smart_score_home">
+                {{data.per1}}<span class="smart_score_txt">大球</span>
+              </div>
+              <div class="smart_score_guest">
+                {{data.per3}}<span class="smart_score_txt">小球</span>
+              </div>
+              盘口：<span class="smart_mc_type">{{data.odds.o3_cn}}</span>
+            </div>
+            <div class="smart_percent" id="smart_data_{{data.livecast_id}}">
+              
+            </div>
+            <div class="smart_mc_bottom">
+              <a href="//odds.sports.sina.com.cn/uefa/base/?m_id={{data.odds_id}}" target="_blank" class="btn_datamodel">查看数据模型</a>
+            </div>
+          </script>
+
           <div class="smart_charts">
             <div class="smart_mod smart_mod_349">
               <div class="smart_mod_head">
@@ -245,9 +579,10 @@
                 实力分析
               </div>
               <div class="smart_chart_a1">
-                <div id="chart_radar_a1" style="width: 349px;height:335px;">
-                  <!-- radar图表 -->
-                </div>
+                <script type="text/html" id="smart_chart_a1_tmp">
+                  <div id="chart_radar_a1_{{idx}}" class="chart_radar_a1" style="width: 349px;height:335px;">
+                  </div>
+                </script>
               </div>
             </div>
             <div class="smart_mod_649">
@@ -257,203 +592,356 @@
                   交战历史
                 </div>
                 <div class="smart_chart_a2">
-                  <div id="chart_pie_a2" style="width: 341px;height:237px;">
-                    <!-- pie图表 -->
-                  </div>
-                  <div class="smart_chart_a2_num">
-                    近<em>6</em>次
-                  </div>
-                  <div class="smart_chart_a2_info">
-                    <div class="smart_chart_a2_head">
-                      <span class="sa2_name">德国</span>
-                      <span class="sa2_win">1</span>胜
-                      <span class="sa2_lose">3</span>负
-                      <span class="sa2_equel">2</span>平
+                  <script type="text/html" id="smart_chart_a2_tmp">
+                    <div id="chart_pie_a2_{{idx}}" class="chart_pie_a2" style="width: 341px;height:237px;">
                     </div>
-                    <div class="smart_chart_a2_detail">
-                      进7球 失20球 赢盘率50%
+                    <div class="smart_chart_a2_num">
+                      近<em>{{data.count}}</em>次
                     </div>
-                  </div>
+                    <div class="smart_chart_a2_info">
+                      <div class="smart_chart_a2_head">
+                        <span class="sa2_name">{{data.Team1}}</span>
+                        <span class="sa2_win">{{data.Team1Win}}</span>胜
+                        <span class="sa2_lose">{{data.Team1Lose}}</span>负
+                        <span class="sa2_equel">{{data.Team1Draw}}</span>平
+                      </div>
+                      <div class="smart_chart_a2_detail">
+                        进{{data.Team1Goal}}球 失{{data.Team1LoseGoal}}球 赢盘率{{data.panlu_percent}}%
+                      </div>
+                    </div>
+                  </script>
                 </div>
               </div>
               <div class="smart_trend">
                 <div class="smart_trend_line_v"></div>
                 <div class="smart_trend_line"></div>
-                <div class="smart_trend_mod" id="smart_trend_home">
-                  <div class="smart_trend_title">
-                    <em>德国</em>走势
-                  </div>
-                  <div id="chart_pie_a3" style="width: 307px;height:160px;">
-                    <!-- pie图表 -->
-                  </div>
-                  <div class="smart_trend_percent">
-                    <em>70</em>%
-                  </div>
-                  <div class="smart_trend_txt">
-                    <span>胜率70％</span>赢／输／平／赢／赢／赢
-                  </div>
+                <div class="smart_trend_mod smart_chart_a3">
+                  <script type="text/html" id="smart_chart_a3_tmp">
+                    <div class="smart_trend_title">
+                      <em>{{data.Team1}}</em>走势
+                    </div>
+                    <div id="chart_pie_a3_{{idx}}" class="chart_pie_a3" style="width: 307px;height:160px;">
+                      
+                    </div>
+                    <div class="smart_trend_percent">
+                      <em>{{data.win_percent}}</em>%
+                    </div>
+                    <div class="smart_trend_txt">
+                      <span>胜率{{data.win_percent}}％</span> {{trend(data.data)}}
+                    </div>
+                  </script>
                 </div>
-                <div class="smart_trend_mod" id="smart_trend_guest">
-                  <div class="smart_trend_title">
-                    <em>法国</em>走势
-                  </div>
-                  <div id="chart_pie_a4" style="width: 307px;height:160px;">
-                    <!-- pie图表 -->
-                  </div>
-                  <div class="smart_trend_percent">
-                    <em>30</em>%
-                  </div>
-                  <div class="smart_trend_txt">
-                    <span>胜率30％</span>赢／输／平／赢／赢／赢
-                  </div>
+                <div class="smart_trend_mod smart_chart_a4">
+                  <script type="text/html" id="smart_chart_a4_tmp">
+                    <div class="smart_trend_title">
+                      <em>{{data.Team1}}</em>走势
+                    </div>
+                    <div id="chart_pie_a4_{{idx}}" class="chart_pie_a4" style="width: 307px;height:160px;">
+                      
+                    </div>
+                    <div class="smart_trend_percent">
+                      <em>{{data.win_percent}}</em>%
+                    </div>
+                    <div class="smart_trend_txt">
+                      <span>胜率{{data.win_percent}}％</span> {{trend(data.data)}}
+                    </div>
+                  </script>
                 </div>
               </div>
             </div>
           </div>
           <div class="smart_forecast">
+            <script type="text/html" id="smart_forecast_tmp">
+              <div class="smart_mod smart_mod_349">
+                <div class="smart_mod_head">
+                  <span class="smart_mod_head_icon"></span>
+                  专家预测
+                </div>
+                <div class="smart_mod_content">
+                  <div class="sf_percent sf_win">
+                    <div class="sfp_l">
+                      胜
+                    </div>
+                    <div class="sfp_c">
+                      <div class="sfp_cp" style="width:{{ percent(stats['3']) }}"></div>
+                    </div>
+                    <div class="sfp_r">
+                      {{if stats['3'] || stats['3']==0}}
+                      <em class="sfp_rn">{{ stats['3'] }}</em>／{{ total }}
+                      {{ else }}
+                        暂无
+                      {{/if}}
+                    </div>
+                  </div>
+                  <div class="sf_percent sf_lose">
+                    <div class="sfp_l">
+                      负
+                    </div>
+                    <div class="sfp_c">
+                      <div class="sfp_cp" style="width:{{ percent(stats['1']) }}"></div>
+                    </div>
+                    <div class="sfp_r">
+                      {{if stats['1'] || stats['1']==0}}
+                      <em class="sfp_rn">{{ stats['1'] }}</em>／{{ total }}
+                      {{ else }}
+                        暂无
+                      {{/if}}
+                    </div>
+                  </div>
+                  <div class="sf_percent sf_equal">
+                    <div class="sfp_l">
+                      平
+                    </div>
+                    <div class="sfp_c">
+                      <div class="sfp_cp" style="width:{{ percent(stats['2']) }}"></div>
+                    </div>
+                    <div class="sfp_r">
+                      {{if stats['2'] || stats['2']==0}}
+                      <em class="sfp_rn">{{ stats['2'] }}</em>／{{ total }}
+                      {{ else }}
+                        暂无
+                      {{/if}}
+                    </div>
+                  </div>
+                  <div class="sf_explain">注：本场参加预测的特约专家 <em>{{ total }}</em> 名</div>
+                  {{if stats['3'] || stats['3']==0}}
+                  <div class="sf_result">（<em>{{ stats["3"] }}</em>胜 <em>{{ stats["1"] }}</em>负 <em>{{ stats["2"] }}</em>平）</div>
+                  {{/if}}
+                </div>
+              </div>
+              <div class="smart_mod_649">
+                <div class="prophesy">
+                  <div class="prophesy_head">
+                    <div class="prophesy_t1">
+                      专<br/>家
+                    </div>
+                    <div class="prophesy_t2">
+                      总<br/>战<br/>绩
+                    </div>
+                    <div class="prophesy_t3">
+                      状<br/>态
+                    </div>
+                    <div class="prophesy_t4">
+                      推<br/>荐
+                    </div>
+                  </div>
+                  <div class="prophesy_main">
+                    <div class="prophesy_content" style="width:{{ width(total) }}">
+                    {{each data as value index}}
+                      <div class="prophesy_item">
+                        <div class="prophesy_item_m1">
+                          <div class="prophesy_portrait">
+                            <img src="{{value.photo}}" alt="{{value.name}}">
+                          </div>
+                          <div class="prophesy_name">{{value.name}}</div>
+                        </div>
+                        <div class="prophesy_item_m2">
+                          {{value.total}}中{{value.right}}
+                          <span>｜</span>
+                          {{if value.total==0}}
+                          <em>%</em>
+                          {{else}}
+                          <em>{{percent1(value.right,value.total)}}</em>
+                          {{/if}}
+                        </div>
+                        <div class="prophesy_item_m3">
+                          {{value.recent_total}}中{{value.recent_right}}
+                        </div>
+                        <div title="{{value.rmd_content}}" class="prophesy_item_m4 {{value.rmd_content_class}}">
+                          {{value.rmd_content1}}
+                        </div>
+                      </div>
+                    {{/each}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </script>
+          </div>
+          <div class="smart_weibo" style="display:none">
+            <!-- <img src="./i/pic/weibo.jpg" alt="smart_weibo"> -->
+            <div class="smart_mod smart_mod_690">
+              <div class="smart_mod_head">
+                <span class="smart_mod_head_icon"></span>
+                热度对比
+              </div>
+              <div class="smart_hot">
+                <script type="text/html" id="smart_chart_a5_tmp">
+                  <div id="chart_dataZoom_a5_{{idx}}" class="chart_dataZoom_a5" style="width: 660px;height:341px;">
+                  </div>
+                </script>
+              </div>
+            </div>
+            <div class="smart_weibo_right">
+              <div class="weiboHead clearfix">
+              	<img class="weiboLogo" src="./i/icon_weibo.png" alt="">
+              	<img class="weiboArrow" src="./i/icon_weiboarrow.png" alt="">
+              </div>
+              <div class="weiboContentContainer">
+              <div class="weiboBlockBox">
+              <script id="teml_weibo" type="text/html">
+              {{each data as value index}}
+              	<div class="weiboBlock">
+              		<div class="weiboContentBox">
+              		<div class="weiboTitBox clearfix">
+              			<img src="{{value.thumbnail_pic}}" alt="" class="weiboShow">
+              			<div class="weibo_headMain clearfix">
+              				<div class="weibo_userName">{{value.userName}}</div>
+              				<div class="weibo_btn_follow">
+              					<a href=""><img src="./i/btn_weibofllow.png" alt=""></a>
+              				</div>
+              				<div class="weibo_time">{{value.dt | weibo_distanse}}</div>
+              			</div>
+              		</div>
+              		<div class="weibo_content">{{value.content}}</div>
+              		</div>
+              		<div class="weiboBtnBox clearfix">
+              			<a href="{{value.weiboUrl}}" class="icon_weiboshare"><img src="i/icon_weiboshare.png" alt="">分享</a> 
+              			<a  href="{{value.weiboUrl}}" class="icon_weibosay"><img src="i/icon_weibosay.png" alt="">评论</a>
+              			 <a href="{{value.weiboUrl}}" class="icon_weibogood"><img src="i/icon_weibogood.png" alt="" >点赞</a> 
+              		</div>
+              	</div>
+                {{/each}}
+             	</script>
+              	
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- smart_box_01 -->
+        <a name="smart_alink_01" id="alink_01"></a> 
+        <div class="smart_box smart_box1" id="smart_box_01">
+          <div class="smart_match">
+            
+          </div>
+          <div class="smart_charts">
             <div class="smart_mod smart_mod_349">
               <div class="smart_mod_head">
                 <span class="smart_mod_head_icon"></span>
-                专家预测
+                实力分析
               </div>
-              <div class="smart_mod_content">
-                <div class="sf_percent sf_win">
-                  <div class="sfp_l">
-                    胜
-                  </div>
-                  <div class="sfp_c">
-                    <div class="sfp_cp"></div>
-                  </div>
-                  <div class="sfp_r">
-                    <em class="sfp_rn">5</em>／10
-                  </div>
-                </div>
-                <div class="sf_percent sf_lose">
-                  <div class="sfp_l">
-                    负
-                  </div>
-                  <div class="sfp_c">
-                    <div class="sfp_cp"></div>
-                  </div>
-                  <div class="sfp_r">
-                    <em class="sfp_rn">5</em>／10
-                  </div>
-                </div>
-                <div class="sf_percent sf_equal">
-                  <div class="sfp_l">
-                    平
-                  </div>
-                  <div class="sfp_c">
-                    <div class="sfp_cp"></div>
-                  </div>
-                  <div class="sfp_r">
-                    <em class="sfp_rn">5</em>／10
-                  </div>
-                </div>
-                <div class="sf_explain">注：本场参加预测的特约专家 <em>10</em> 名</div>
-                <div class="sf_result">（<em>5</em>胜 <em>1</em>负 <em>4</em>平）</div>
+              <div class="smart_chart_a1">
+                
               </div>
             </div>
             <div class="smart_mod_649">
-              <div class="prophesy">
-                <div class="prophesy_head">
-                  <div class="prophesy_t1">
-                    专<br/>家
-                  </div>
-                  <div class="prophesy_t2">
-                    总<br/>战<br/>绩
-                  </div>
-                  <div class="prophesy_t3">
-                    状<br/>态
-                  </div>
-                  <div class="prophesy_t4">
-                    推<br/>荐
-                  </div>
+              <div class="smart_mod smart_mod_341">
+                <div class="smart_mod_head">
+                  <span class="smart_mod_head_icon"></span>
+                  交战历史
                 </div>
-                <div class="prophesy_main">
-                  <div class="prophesy_content">
-                    <div class="prophesy_item">
-                      <div class="prophesy_item_m1">
-                        <div class="prophesy_portrait">
-                          <img src="/i/pic/smart_flag_01.png" alt="">
-                        </div>
-                        <div class="prophesy_name">苏群</div>
-                      </div>
-                      <div class="prophesy_item_m2">
-                        30中15
-                        <span>｜</span>
-                        <em>80%</em>
-                      </div>
-                      <div class="prophesy_item_m3">
-                        5中3
-                      </div>
-                      <div class="prophesy_item_m4">
-                        法国<span></span>5:0
-                      </div>
-                    </div>
-                    <div class="prophesy_item">
-                      <div class="prophesy_item_m1">
-                        <div class="prophesy_portrait">
-                          <img src="/i/pic/smart_flag_01.png" alt="">
-                        </div>
-                        <div class="prophesy_name">苏群</div>
-                      </div>
-                      <div class="prophesy_item_m2">
-                        30中15
-                        <span>｜</span>
-                        <em>80%</em>
-                      </div>
-                      <div class="prophesy_item_m3">
-                        5中3
-                      </div>
-                      <div class="prophesy_item_m4">
-                        法国<span></span>5:0
-                      </div>
-                    </div>
-                    <div class="prophesy_item">
-                      <div class="prophesy_item_m1">
-                        <div class="prophesy_portrait">
-                          <img src="/i/pic/smart_flag_01.png" alt="">
-                        </div>
-                        <div class="prophesy_name">苏群</div>
-                      </div>
-                      <div class="prophesy_item_m2">
-                        30中15
-                        <span>｜</span>
-                        <em>80%</em>
-                      </div>
-                      <div class="prophesy_item_m3">
-                        5中3
-                      </div>
-                      <div class="prophesy_item_m4">
-                        法国<span></span>5:0
-                      </div>
-                    </div>
-                    <div class="prophesy_item">
-                      <div class="prophesy_item_m1">
-                        <div class="prophesy_portrait">
-                          <img src="/i/pic/smart_flag_01.png" alt="">
-                        </div>
-                        <div class="prophesy_name">苏群</div>
-                      </div>
-                      <div class="prophesy_item_m2">
-                        30中15
-                        <span>｜</span>
-                        <em>80%</em>
-                      </div>
-                      <div class="prophesy_item_m3">
-                        5中3
-                      </div>
-                      <div class="prophesy_item_m4">
-                        法国<span></span>5:0
-                      </div>
-                    </div>
-                  </div>
+                <div class="smart_chart_a2">
+                  
+                </div>
+              </div>
+              <div class="smart_trend">
+                <div class="smart_trend_line_v"></div>
+                <div class="smart_trend_line"></div>
+                <div class="smart_trend_mod smart_chart_a3">
+                  
+                </div>
+                <div class="smart_trend_mod smart_chart_a4">
+                  
                 </div>
               </div>
             </div>
           </div>
-          <div class="smart_weibo">
+          <div class="smart_forecast">
+            
+          </div>
+          <div class="smart_weibo" style="display: none;">
+            <img src="./i/pic/weibo.jpg" alt="smart_weibo">
+          </div>
+        </div>
+        <!-- smart_box_02 -->
+        <a name="smart_alink_02" id="alink_02"></a> 
+        <div class="smart_box smart_box1" id="smart_box_02">
+          <div class="smart_match">
+            
+          </div>
+          <div class="smart_charts">
+            <div class="smart_mod smart_mod_349">
+              <div class="smart_mod_head">
+                <span class="smart_mod_head_icon"></span>
+                实力分析
+              </div>
+              <div class="smart_chart_a1">
+                
+              </div>
+            </div>
+            <div class="smart_mod_649">
+              <div class="smart_mod smart_mod_341">
+                <div class="smart_mod_head">
+                  <span class="smart_mod_head_icon"></span>
+                  交战历史
+                </div>
+                <div class="smart_chart_a2">
+                  
+                </div>
+              </div>
+              <div class="smart_trend">
+                <div class="smart_trend_line_v"></div>
+                <div class="smart_trend_line"></div>
+                <div class="smart_trend_mod smart_chart_a3">
+                  
+                </div>
+                <div class="smart_trend_mod smart_chart_a4">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="smart_forecast">
+            
+          </div>
+          <div class="smart_weibo" style="display: none;">
+            <img src="./i/pic/weibo.jpg" alt="smart_weibo">
+          </div>
+        </div>
+        <!-- smart_box_03 -->
+        <a name="smart_alink_03" id="alink_03"></a> 
+        <div class="smart_box smart_box1" id="smart_box_03">
+          <div class="smart_match">
+            
+          </div>
+          <div class="smart_charts">
+            <div class="smart_mod smart_mod_349">
+              <div class="smart_mod_head">
+                <span class="smart_mod_head_icon"></span>
+                实力分析
+              </div>
+              <div class="smart_chart_a1">
+                
+              </div>
+            </div>
+            <div class="smart_mod_649">
+              <div class="smart_mod smart_mod_341">
+                <div class="smart_mod_head">
+                  <span class="smart_mod_head_icon"></span>
+                  交战历史
+                </div>
+                <div class="smart_chart_a2">
+                  
+                </div>
+              </div>
+              <div class="smart_trend">
+                <div class="smart_trend_line_v"></div>
+                <div class="smart_trend_line"></div>
+                <div class="smart_trend_mod smart_chart_a3">
+                  
+                </div>
+                <div class="smart_trend_mod smart_chart_a4">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="smart_forecast">
+            
+          </div>
+          <div class="smart_weibo" style="display: none;">
             <img src="./i/pic/weibo.jpg" alt="smart_weibo">
           </div>
         </div>
@@ -461,51 +949,35 @@
     </div>
   </div>
   <!-- 内容主体 html end  -->
-  
-  <!-- 弹出层 -->
-  <div id="mask"></div>
-  <div id="popup">
-    <div class="popup_icon"></div>
-    <a href="javascript:;" class="popup_btn_close"></a>
-    <div class="popup_info">
-      <div class="popup_title">您的订单已提交成功，请尽快付款！</div>
-      <div class="popup_price">应付金额 <span>29元</span></div>
-      <div class="popup_tips">请在23小时内完成付款，付款成功后，您将看到本场比赛推荐~</div>
-    </div>
-    <div class="popup_operate">
-      <div class="popup_pay_box">
-        <a href="javascript:;" class="popup_pay">立即支付</a>
-      </div>
-      <a href="#" target="_blank" class="popup_go_order">查看订单</a>
-    </div>
-  </div>
+
   <!-- 侧边栏sidebar -->
   <div id="sidebar">
-    <div class="sidebar_mascot"></div>
-    <a href="#match_play_1" class="sidebar_item first selected">
-      <span class="sidebar_item_name">德国</span>
-      <span class="sidebar_item_vs">vs</span>
-      <span class="sidebar_item_name">法国</span>
-    </a>
-    <a href="#match_play_1" class="sidebar_item">
-      <span class="sidebar_item_name">德国</span>
-      <span class="sidebar_item_vs">vs</span>
-      <span class="sidebar_item_name">法国</span>
-    </a>
-    <a href="#match_play_1" class="sidebar_item">
-      <span class="sidebar_item_name">德国</span>
-      <span class="sidebar_item_vs">vs</span>
-      <span class="sidebar_item_name">法国</span>
-    </a>
-    <a href="javascript:;" id="gotoTop">返回顶部</a>
+    <script type="text/html" id="sidebar_tmp">
+      <div class="sidebar_mascot"></div>
+      {{each data as value index}}    
+      <a href="#smart_alink_0{{index}}" class="sidebar_item first {{if index==0}} selected {{/if}}">
+        <span class="sidebar_item_name">{{value.Team1}}</span>
+        <span class="sidebar_item_vs">vs</span>
+        <span class="sidebar_item_name">{{value.Team2}}</span>
+      </a>
+      {{/each}} 
+      <a href="javascript:;" id="gotoTop">返回顶部</a>
+    </script>
   </div>
+
+  <div id="smart_tips">
+    小炮正在努力预测中，暂时无法购买！
+  </div>
+
+  <!-- 弹出层 html start -->
+  <link rel="import" href="h/popup.html?__inline">
+  <!-- 弹出层 html end -->
   
   <!-- 底部 html start -->
   <link rel="import" href="h/footer.html?__inline">
-  <!-- 底部 html start -->
+  <!-- 底部 html end -->
   
   <script type="text/javascript" charset="utf-8" src="./j/lib/lib.js"></script>
-  <script type="text/javascript" src="j/lib/template.js"></script>
   <script type="text/javascript" src="j/lib/echarts.min.js"></script>
 
   <script type="text/javascript">

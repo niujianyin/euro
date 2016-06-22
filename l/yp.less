@@ -1,0 +1,634 @@
+@import url('./constant.less');
+@import url('./reset.less');
+@import url('./top.less');
+@import url('./top_account.less');
+
+// header.css
+body{ background: #031712;}
+#SI_TopBar{ background: #fff;}
+.wrap1000{ width: 1000px; margin: 0 auto; position: relative;}
+#sina-top-bar-right {
+  float: right;
+  line-height: 36px;
+  font-size: 14px;
+}
+.sina-top-bar-logo{
+  float: left;
+  height: 36px;
+  width: 105px;
+  background: url(../i/logo.png) no-repeat;
+}
+// yp.css
+#yp_head{
+  background: url(../i/yp/yp_head.jpg) no-repeat center top;
+  height: 739px;
+}
+#yp_00{
+  background: url(../i/yp/yp_00.jpg) no-repeat center top;
+  height: 267px;
+}
+#yp_01{
+  background: url(../i/yp/yp_01.jpg) no-repeat center top;
+  height: 415px;
+}
+#yp_02{
+  background: url(../i/yp/yp_02.jpg) no-repeat center top;
+  height: 411px;
+}
+#yp_03{
+  background: url(../i/yp/yp_03.jpg) no-repeat center top;
+  height: 525px;
+}
+#yp_04{
+  background: url(../i/yp/yp_04.jpg) no-repeat center top;
+  height: 877px;
+}
+#yp_05{
+  overflow: hidden;
+}
+.yp_05_h{
+  background: url(../i/yp/yp_05_h.jpg) no-repeat center top;
+  height: 182px;
+}
+.yp_05_m{
+  background: url(../i/yp/yp_05_m.jpg) no-repeat center top;
+  height: 462px;
+  position: relative;
+}
+.yp_05_b{
+  background: url(../i/yp/yp_05_b.jpg) no-repeat center top;
+  height: 99px;
+}
+#yp_06{
+  background: url(../i/yp/yp_06.jpg) no-repeat center top;
+  height: 693px;
+}
+#yp_footer{
+  background: url(../i/yp/yp_footer.jpg?t=1) no-repeat center top;
+  height: 743px;
+  position: relative;
+}
+
+.wrap{ 
+  width: 1000px; 
+  margin: 0 auto; 
+  position: relative;
+  height: 100%;
+}
+.yp_euro{
+  position: absolute;
+  left: 50%;
+  bottom: 35px;
+  width: 366px;
+  height: 99px;
+  margin-left: -47px;
+  // background: white;
+  // opacity: 0.3;
+}
+
+.yp_go,.yp_go:visited,.yp_go:hover{
+  position: absolute;
+  top: 0;
+  height: 205px;
+  color:#fff100;
+  cursor: pointer;
+  // background: white;
+  // opacity: 0.3;
+}
+.yp_go_txt{
+  position: absolute;
+  left: 41px;
+  top: 162px;
+  width: 87px;
+  height: 29px;
+  text-align: center;
+  line-height: 29px;
+  font-size: 16px;
+  color:#fff100;
+  font-weight: bold;
+  background: url(../i/yp/yp_icon_02.png) no-repeat;
+}
+
+.yp_go_txt_01{
+
+}
+.yp_go_txt_02{
+  background: url(../i/yp/yp_icon_01.png) no-repeat;
+  color: #999;
+}
+.yp_go_txt_03{
+  
+}
+
+.yp_00_06_txt{
+  background: url(../i/yp/yp_icon_01.png) no-repeat;
+  color: #999;
+  left: 51px;
+}
+.yp_go_money{
+  position: absolute;
+  left: 41px;
+  top: 162px;
+  width: 100px;
+  height: 29px;
+  text-align: center;
+  line-height: 29px;
+  font-size: 20px;
+  font-weight: bolder;
+  color:#e62e26;
+}
+.yp_go_money1{
+  position: absolute;
+  left: 41px;
+  top: 162px;
+  width: 100px;
+  height: 29px;
+  text-align: center;
+  line-height: 29px;
+  font-size: 14px;
+  color:#e62e26;
+}
+.yp_go_money1 em{ font-size: 24px; font-weight: bolder;}
+.yp_RMB{ font-size: 14px; font-weight: normal; padding-right: 3px;}
+#yp_go_00{
+  width: 167px;
+  left: 0;
+}
+#yp_go_01{
+  width: 167px;
+  left: 167px;
+  // background: red;
+}
+#yp_go_02{
+  width: 165px;
+  left: 334px;
+}
+#yp_go_03{
+  width: 167px;
+  left: 499px;
+  // background: red;
+}
+#yp_go_04{
+  width: 166px;
+  left: 666px;
+}
+#yp_go_05{
+  width: 167px;
+  left: 832px;
+  // background: red;
+}
+
+.yp_pay{
+  // background: white;
+  // opacity: 0.6;
+}
+.yp_explain{
+  position: absolute;
+  left: 283px;
+  top: 35px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  color: #61b09b;
+}
+.yp_explain em{
+  font-size: 24px;
+  padding: 0 3px;
+}
+#yp_01_explain{
+  
+}
+#yp_02_explain{
+  top: 28px;
+}
+
+
+.yp_price{
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 52px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 32px;
+  color: #fffd53;
+}
+.yp_price em{
+  font-size: 36px;
+  font-weight: bold;
+  padding-left: 3px;
+}
+.yp_oldprice{
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 102px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 32px;
+  color: #d7d7d7;
+  font-size: 16px;
+  text-decoration: line-through;
+}
+.yp_msg{
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 0px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #031712;
+}
+
+#yp_02 .yp_price{ top: 47px;}
+#yp_02 .yp_oldprice{ top: 95px;}
+#yp_02 .yp_msg{ bottom: 5px;}
+
+#yp_03 .yp_msg{ bottom: 3px;}
+
+
+
+.yp_all{
+  position: absolute;
+  top: 178px;
+  height: 174px;
+  cursor: pointer;
+}
+#yp_all_00{
+  left: 109px;
+  width: 200px;
+}
+#yp_all_01{
+  left: 404px;
+  width: 200px;
+}
+#yp_all_02{
+  left: 687px;
+  width: 200px;
+}
+
+.yp_group{
+  position: absolute;
+  top: 178px;
+  height: 174px;
+  cursor: pointer;
+}
+#yp_group_00{
+  left: 109px;
+  width: 200px;
+}
+#yp_group_01{
+  left: 404px;
+  width: 200px;
+}
+#yp_group_02{
+  left: 687px;
+  width: 200px;
+}
+
+.yp_out{
+  position: absolute;
+  top: 180px;
+  height: 174px;
+  cursor: pointer;
+}
+#yp_out_00{
+  left: 109px;
+  width: 200px;
+}
+#yp_out_01{
+  left: 404px;
+  width: 200px;
+}
+#yp_out_02{
+  left: 687px;
+  width: 200px;
+}
+
+.yp_team{
+  position: absolute;
+  width: 210px;
+  height: 250px;
+  cursor: pointer;
+  // background: white;
+  // opacity: 0.3;
+}
+.yp_team_ul{
+  position: absolute;
+  left: 108px;
+  top: 66px;
+  width: 100px;
+  height: 111px;
+  // background: red;
+  // opacity: 0.2;
+}
+.yp_team_li_has .yp_team_li_icon{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: url(../i/yp/yp_radio_01.png) no-repeat;
+  width: 17px;
+  height: 17px;
+}
+.yp_team_li,.yp_team_li_has{
+  height: 37px;
+  line-height: 37px;
+  font-size: 16px;
+  color: #b3e4d7;
+  font-weight: bold;
+  padding-left: 35px;
+  position: relative;
+}
+.yp_team_li_icon{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: url(../i/yp/yp_radio_02.png) no-repeat;
+  width: 17px;
+  height: 17px;
+}
+.yp_team .selected .yp_team_li_icon{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: url(../i/yp/yp_radio_03.png) no-repeat;
+  width: 160px;
+  height: 50px;
+}
+.yp_team_pay{
+  position: absolute;
+  left: 26px;
+  top: 187px;
+  background: url(../i/yp/yp_icon_07.png) no-repeat;
+  width: 160px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  padding-left: 25px;
+  cursor: pointer;
+}
+.yp_team_pay_02{
+  background: url(../i/yp/yp_icon_06.png) no-repeat;
+  color: #999;
+}
+
+#yp_team_933{
+  left: 275px;
+  top: 58px;
+}
+#yp_team_934{
+  left: 514px;
+  top: 58px;
+}
+#yp_team_944{
+  left: 34px;
+  top: 172px;
+}
+#yp_team_922{
+  right: 34px;
+  top: 172px;
+}
+// 924 比利时
+#yp_team_924{
+  left: 34px;
+  top: 450px;
+}
+// 821 瑞典
+#yp_team_821{
+  right: 34px;
+  top: 450px;
+}
+// 939 葡萄牙
+#yp_team_939{
+  left: 275px;
+  top: 568px;
+}
+// 926 意大利
+#yp_team_926{
+  left: 514px;
+  top: 568px;
+}
+
+
+
+.yp_05_title{
+  position: absolute;
+  top: 32px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-size: 26px;
+  color: #60b19b;
+  font-weight: bold;
+}
+.yp_05_subtitle{
+  position: absolute;
+  top: 96px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #60b19b;
+}
+.yp_05_hflag{
+  width: 114px;
+  height: 92px;
+  position: absolute;
+  left: 120px;
+  top: 254px;
+}
+.yp_05_hflag img,.yp_05_gflag img{
+  width: 100%;
+  height: 100%;
+}
+.yp_05_hname{
+  position: absolute;
+  left: 98px;
+  top: 355px;
+  width: 158px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #60b19b;
+  text-align: center;
+}
+.yp_05_gflag{
+  width: 114px;
+  height: 92px;
+  position: absolute;
+  right: 120px;
+  top: 254px;
+}
+.yp_05_gname{
+  position: absolute;
+  right: 98px;
+  top: 355px;
+  width: 158px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #60b19b;
+  text-align: center;
+}
+.yp_05_link01{
+  position: absolute;
+  left: 50%;
+  margin-left: -198px;
+  top: 212px;
+  background: url(../i/yp/yp_05_btn.png) no-repeat;
+  width: 396px;
+  height: 202px;
+}
+.yp_05_link02{
+  position: absolute;
+  left: 50%;
+  margin-left: -198px;
+  top: 212px;
+  background: url(../i/yp/yp_05_btng.png) no-repeat;
+  width: 396px;
+  height: 202px;
+}
+
+.yp_06_euro{
+  position: absolute;
+  left: 301px;
+  bottom: 53px;
+  width: 400px;
+  height: 54px;
+  // background: red;
+  // opacity: 0.2;
+}
+
+.yp_07_euro{
+  position: absolute;
+  left: 518px;
+  bottom: 269px;
+  width: 254px;
+  height: 27px;
+  // background: red;
+  // opacity: 0.2;
+}
+
+// container.css
+#container{
+  min-height: 500px;
+  padding-bottom: 120px;
+}
+// popup
+#mask{
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .2;
+  filter: alpha(opacity=20);
+  display: none;
+}
+.popup_box{
+  position: absolute;
+  position: fixed;
+  z-index: 11;
+  left: 50%;
+  top: 0;
+  width: 600px;
+  min-height: 200px;
+  margin: 0 0 0 -300px;
+  background: #fff;
+  display: none;
+}
+.popup_icon{
+  position: absolute;
+  left: 35px;
+  top: 35px;
+  width: 70px;
+  height: 70px;
+  background: url(../i/icon_corrent.png?__sprite) no-repeat;
+}
+.popup_icon1{
+  position: absolute;
+  left: 35px;
+  top: 35px;
+  width: 70px;
+  height: 70px;
+  background: url(../i/icon_canpay.png?__sprite) no-repeat;
+}
+.popup_btn_close{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: url(../i/icon_close.png?__sprite) no-repeat;
+}
+.popup_info{
+  padding:30px 20px 30px 140px;
+}
+.popup_title{
+  font-size: 24px;
+  line-height: 30px;
+}
+.popup_price{
+  font-size: 18px;
+  padding-top: 20px;
+}
+.popup_price span{
+  color: #f50;
+}
+.popup_tips{
+  font-size: 12px;
+  padding-top: 20px;
+  line-height: 20px;
+}
+.popup_operate{
+  position: relative;
+  height: 80px;
+}
+.popup_pay_box{
+  height: 40px;
+}
+.popup_btn_pay,.popup_btn_pay:visited,.popup_btn_pay:hover,
+.popup_btn_canpay,.popup_btn_canpay:visited,.popup_btn_canpay:hover,
+.popup_btn_know,.popup_btn_know:visited,.popup_btn_know:hover{
+  height: 40px;
+  line-height: 40px;
+  width: 140px;
+  display: block;
+  background-color: #f50;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.popup_go_order,.popup_btn_cancel{
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 40px;
+  line-height: 40px;
+  // color: #f50;
+  margin-left: 100px;
+}
+#popup_msg{
+  font-size: 20px;
+  line-height: 30px;
+  height: 70px;
+  padding-top: 30px;
+}
+
+
+
+
+

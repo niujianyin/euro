@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>欧洲杯智能平台_新浪彩通</title>
+  <link rel="import" href="h/commonHead.html?__inline">
+  <link rel="stylesheet" href="l/yp_out.less" type="text/css" media="screen" />
+</head>
+<body>
+  <!-- 手动配置文件 -->
+  <script type="text/javascript" src="http://sports.sina.com.cn/js/euro2016_lottery/yp_out_config.js"></script>
+  <!-- 头部 html start -->
+  <link rel="import" href="h/header_yp.html?__inline">
+  <script src="./j/lib/jquery-1.11.1.min.js"></script>
+  <!--[if lte IE 9]>
+  <script src="./j/lib/respond.min.js"></script>
+  <ypscript src="./j/lib/html5shiv.min.js"></script>
+  <![endif]-->
+  <!-- 登录组件js -->
+  <script type="text/javascript" src="./j/lib/lib_top.js"></script>
+
+  <!-- 内容主体 html start -->
+  <div id="yp_head" class="ypbox">
+    <div class="wrap">
+      <a href="http://euro.sina.com.cn/lottery/" class="yp_euro" target="_blank"></a>
+    </div>
+  </div>
+  <!-- 首单礼包 -->
+  <div id="yp_06">
+    <div class="wrap">
+      <a href="http://euro.sina.com.cn/lottery/#smart_alink_00" class="yp_06_euro" target="_blank"></a>
+    </div>
+  </div>
+  
+  <!-- 淘汰赛礼包 -->
+  <div id="yp_00" class="ypbox" data-box="yp_00">
+  <script type="text/html" id="yp_00_tmp">
+    <div class="wrap clearfix">
+      <div class="yp_explain" id="yp_00_explain">{{# data[0].explain}}</div>
+      {{each data as value index}}
+      <div class="yp_out {{ getPay(value.status)}}" id="yp_out_0{{index}}" data-idx="{{index}}">
+        <div class="yp_price">¥<em>{{value.price}}</em></div>
+        <div class="yp_oldprice">¥{{value.oldprice}}</div>
+        <div class="yp_msg">{{ getMsg(value)}}</div>
+      </div>
+      {{/each}}
+      <span class="allIn_port"> 温馨提示：<br/>为避免您重复消费，如果您已经购买了淘汰赛单个玩法包和全赛事包，请您直接单独购买其余玩法。</span>
+    </div>
+  </script>
+  </div>
+  <!-- 全赛事礼包 -->
+  <div id="yp_01" class="ypbox" data-box="yp_01" style="display: none;">
+  <script type="text/html" id="yp_01_tmp">
+    <div class="wrap">
+      <div class="yp_explain" id="yp_01_explain">{{# data[0].explain}}</div>
+      <div class="yp_countNum" id="yp_01_countNum"><em class="yp_countNum_txt"></em></div>
+      {{each data as value index}}
+      <div class="yp_all {{ getPay(value.status)}}" id="yp_all_0{{index}}" data-idx="{{index}}">
+        <div class="yp_price">¥<em>{{value.price}}</em></div>
+        <div class="yp_oldprice">¥{{value.oldprice}}</div>
+        <div class="yp_msg">{{ getMsg(value)}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+  </div>
+  <!-- 小组赛礼包 -->
+  <div id="yp_02" class="ypbox" data-box="yp_02" style="display: none;">
+  <script type="text/html" id="yp_02_tmp">
+    <div class="wrap">
+      <div class="yp_explain" id="yp_02_explain">{{# data[0].explain}}</div>
+      <div class="yp_countNum" id="yp_02_countNum"><em class="yp_countNum_txt"></em></div>
+      {{each data as value index}}
+      <div class="yp_group {{ getPay(value.status)}}" id="yp_group_0{{index}}" data-idx="{{index}}">
+        <div class="yp_price">¥<em>{{value.price}}</em></div>
+        <div class="yp_oldprice">¥{{value.oldprice}}</div>
+        <div class="yp_msg">{{ getMsg(value)}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+  </div>
+  <div id="yp_footer" class="ypbox" data-box="yp_07">
+    <div class="wrap">
+      <div class="yp_footerH">
+        活动规则
+      </div>
+      <div class="yp_footerP">
+        <ul>
+         <li> -  参加活动需验证手机号，验证可使您的交易更安全，本网严格对个人信息保密。<li/> <li>
+-  欧洲杯小炮智能一共预测51场比赛，含胜平负、大小球、上下盘三个玩法。每个玩法29元/场。<li/> <li>
+-  用户发起首笔欧洲杯智能订单，过期未支付，视为放弃1元特惠权益。<li/> <li>
+-  6·10欧洲杯揭幕，当天订购预测，单场按6.10元特价优惠。优惠的两场赛事分别为法国VS罗马尼亚、阿尔巴尼亚VS瑞士。分别可订购胜平
+    负、大小分、上下盘三个玩法。6.10活动当天如果是首次购买欧洲杯智能预测，依然享受1元特惠。<li/> <li>
+-  87元球队“真爱包”含8支高人气球队，分别为德国、法国、意大利、西班牙、英格兰、比利时、瑞典、葡萄牙。某支球队开始比赛，其真爱
+    包即停售。<li/> <li>
+- “真爱包”胜平负、大小球、上下盘任一玩法统一售价87元，球队实力越强，打的比赛越多，优惠越多，最多可免单4场。<li/> 
+</ul>
+<ul class="yp_footeOther">
+<li>-  旗舰淘汰赛礼包专为淘汰赛定制，最多15场打包，随赛程减低售价，旗舰淘汰赛礼包专为淘汰赛定制，最多15场打包，随赛程减低售价。
+淘汰赛包有两种促销形式：（1）按亚盘、胜平负、大小球三个玩法分别折扣售卖，折合场均19.87元。（2）仨玩法捆绑促销售卖，即全包淘汰赛所有可购买赛事的所有玩法，45.87元每场，折合单玩法均价15.29元。<li/> <li>
+-  荣耀小组赛礼包专为小组赛定制，最多36场整包出售，随赛程减低售价，折合场均18.50元。<li/> <li>
+-  尊享全赛事礼包为51场赛事全集，随赛程减低售价，折合场均17.41元。<li/> <li>
+-  所购买赛事预测结果及订单详情查看，可登录欧洲杯专题首页（http://euro.sina.com.cn/lottery/）或访问个人账户中心。<li/> <li>
+-  淘汰赛开始后，全赛事包售卖将自动终止。<li/> <li>
+-  总体活动时间：2016年6月1日—7月11日。<li/> <li>
+- 未尽事宜，以新浪彩通官方解释为准。<li/> <li>
+-  24小时客服热线：400-690-0000 010-82623378<li/>
+        </ul>
+        
+      </div>
+      <div class="yp_footer_btn">
+          <img src="i/yp_out/yp_out_btnbig.png" height="41" width="930">
+        </div>
+    </div>
+    <a href="http://euro.sina.com.cn/lottery/#smart_alink_00" class="yp_07_euro" target="_blank"></a>
+  </div>
+  <!-- 内容主体 html end  -->
+
+  <!-- 弹出层 html start -->
+  <link rel="import" href="h/popup_yp.html?__inline">
+  <!-- 弹出层 html end -->
+
+  <script type="text/javascript" charset="utf-8" src="./j/yp_out.js"></script>
+</body>
+</html>

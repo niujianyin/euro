@@ -6,6 +6,11 @@
 
 // header.css
 .wrap1000{ width: 1000px; margin: 0 auto; position: relative;}
+#sina-top-bar-right {
+  float: right;
+  line-height: 36px;
+  font-size: 14px;
+}
 .sina-top-bar-logo{
   float: left;
   height: 36px;
@@ -16,6 +21,23 @@
 #header_t{
   height: 220px;
   background: url(../i/bg_header_t.jpg) no-repeat center top;
+  position: relative;
+}
+#link_alink_00{
+  position: absolute;
+  left: 50%;
+  top: 49px;
+  margin-left: -403px;
+  width: 193px;
+  height: 38px;
+}
+#link_caitong{
+  position: absolute;
+  left: 50%;
+  top: 36px;
+  margin-left: 371px;
+  width: 106px;
+  height: 42px;
 }
 #header_b{
   height: 170px;
@@ -33,7 +55,7 @@
   float: left;
   font-size: 18px;
   color: #fff;
-  padding: 0 16px;
+  padding: 0 20px;
   height: 50px;
   line-height: 50px;
   overflow: hidden;
@@ -93,6 +115,7 @@
 .item_t{
   height: 34px;
   background: #effef2;
+  overflow: hidden;
 }
 .item_t_status{
   float: left;
@@ -169,7 +192,7 @@
 }
 .item_b_home{
   float: left;
-  width: 67px;
+  width: 75px;
   padding-left: 10px;
   text-align: center;
   font-size: 12px;
@@ -180,8 +203,8 @@
   height: 20px;
 }
 .item_b_guest{
-  float: left;
-  width: 67px;
+  float: right;
+  width: 75px;
   padding-right: 10px;
   text-align: center;
   font-size: 12px;
@@ -251,25 +274,289 @@
 
 
 
+// popup
+#mask{
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .2;
+  filter: alpha(opacity=20);
+  display: none;
+}
+.popup_box{
+  position: absolute;
+  position: fixed;
+  z-index: 11;
+  left: 50%;
+  top: 0;
+  width: 600px;
+  min-height: 200px;
+  margin: 0 0 0 -300px;
+  background: #fff;
+  display: none;
+}
+.popup_icon{
+  position: absolute;
+  left: 35px;
+  top: 35px;
+  width: 70px;
+  height: 70px;
+  background: url(../i/icon_corrent.png?__sprite) no-repeat;
+}
+.popup_icon1{
+  position: absolute;
+  left: 35px;
+  top: 35px;
+  width: 70px;
+  height: 70px;
+  background: url(../i/icon_canpay.png?__sprite) no-repeat;
+}
+.popup_btn_close{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: url(../i/icon_close.png?__sprite) no-repeat;
+}
+.popup_info{
+  padding:30px 20px 30px 140px;
+}
+.popup_title{
+  font-size: 24px;
+  line-height: 30px;
+}
+.popup_price{
+  font-size: 18px;
+  padding-top: 20px;
+}
+.popup_price span{
+  color: #f50;
+}
+.popup_tips{
+  font-size: 12px;
+  padding-top: 20px;
+  line-height: 20px;
+}
+.popup_operate{
+  position: relative;
+  height: 80px;
+}
+.popup_pay_box{
+  height: 40px;
+}
+.popup_btn_pay,.popup_btn_pay:visited,.popup_btn_pay:hover,
+.popup_btn_canpay,.popup_btn_canpay:visited,.popup_btn_canpay:hover,
+.popup_btn_know,.popup_btn_know:visited,.popup_btn_know:hover{
+  height: 40px;
+  line-height: 40px;
+  width: 140px;
+  display: block;
+  background-color: #f50;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.popup_go_order,.popup_btn_cancel{
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 40px;
+  line-height: 40px;
+  // color: #f50;
+  margin-left: 100px;
+}
+#popup_msg{
+  font-size: 20px;
+  line-height: 30px;
+  height: 70px;
+  padding-top: 30px;
+}
 
 
+// paypre.html
+#container1{
+  min-height: 200px;
+  padding: 30px 0;
+}
+.pre_head {
+  height: 50px;
+  padding-bottom: 20px
+}
+.pre_head_txt {
+  font-size: 18px;
+  line-height: 30px;
+  float: left
+}
+.pre_head_icon {
+  background-color: #f50;
+  margin-right: 16px;
+  width: 4px;
+  height: 30px;
+  float: left
+}
+.pre_head:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both
+}
+.pre_info{}
+.pre_table {
+  font-size: 14px;
+  width: 100%;
+  border-top: 2px solid #aaa
+}
+.pre_table th {
+  background-color: #f3f3f3;
+  padding: 0 60px;
+  line-height: 50px;
+  text-align: center;
+}
+.pre_table td {
+  line-height: 110px;
+  text-align: center
+}
 
+.pre_way {
+  margin-top: 30px;
+  border: 1px solid #dadada;
+  padding: 24px 20px;
+  position: relative
+}
+.pre_way:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both
+}
+.pre_way_btn {
+  float: right;
+  width: 120px;
+  line-height: 30px;
+  text-align: center;
+}
+.pre_way_btn:first-child {
+  margin-left: 20px
+}
+.pre_way .pre_way_btn:hover {
+  color: #3c3c3c
+}
+.pre_way .pre_way_cur {
+  border: 1px solid #ffda8e;
+  background-color: #fffeee
+}
+.pre_way_icon{
+  width: 39px;
+  height: 27px;
+  background-image: url(../i/icon_recommend.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 9px;
+  right: 170px
+}
+.pre_way_shouldpay {
+  clear: right;
+  padding-top: 18px;
+  font-size: 18px;
+  text-align: right
+}
+.pre_way_shouldpay span {
+  font-weight: bold;
+  color: #f50;
+  margin-right: 4px
+}
 
+.pre_pay {
+  margin-top: 30px
+}
+#pre_pay_btn {
+  float: right;
+  line-height: 40px;
+  display: block;
+  width: 140px;
+  background-color: #aaa;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer
+}
+.pre_pay input {
+  margin-left: 312px;
+  margin-right: 4px;
+  margin-top: 24px
+}
+.pre_pay label {
+  cursor: pointer;
+}
+.pre_pay:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both
+}
+#pre_popup{
+  display: none;
+  z-index: 11;
+  width: 760px;
+  padding: 30px 26px;
+  background-color: #fff;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -380px;
+}
+.pre_popup_title{
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+}
+.pre_popup_main{
+  font-size: 14px;
+  line-height: 30px;
+}
+#pre_close{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+#pre_popup_close{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: url(../i/icon_close.png) no-repeat;
+}
+.pre_price{
+  font-size: 16px;
+  color: #ff5500;
+}
+.pre_oldprice{
+  padding-left: 5px;
+  color: #999;
+  font-size: 12px;
+  text-decoration:  line-through;
+}
+.popup_money em{
+  padding-left: 5px;
+  color: #999;
+  font-size: 12px;
+  text-decoration:  line-through;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.none{ display: none;}
 
 
 

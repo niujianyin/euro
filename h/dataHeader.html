@@ -1,0 +1,307 @@
+<div class="sina-top-bar-wrap sina-top-bar-blue" id="SI_TopBar" top-data="auto">
+  <div class="sina-top-bar-inner" top-node-type="inner">
+    <a href="javascript:;" class="sina-top-bar-logo"></a>
+    <div id="sina-top-bar-right" style="display:none;">
+      <a href="http://ai.lottery.sina.com.cn/uc/order/index">我的订单</a>
+    </div>
+    <div class="sina-top-bar-user TAP14" id="SI_User">
+      <div class="ac-rgst">
+        <a target="_blank" href="https://login.sina.com.cn/signup/signup?entry=ent" class="msg-link">注册</a>
+      </div>
+      <div class="ac-login">
+        <div class="ac-login-cnt">
+          <a href="#0" class="ac-login-cnt"><span class="thumb"><img
+            src="http://i.sso.sina.com.cn/images/login/thumb_default.png"></span><span class="log-links">登录</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="d_header">
+  <div id="d_nav" class="clearfix">
+    <ul>
+      <li><a href="./index.html" target="_blank">欧洲杯首页</a></li>
+      <li><a href="./index.html" target="_blank">滚动</a></li>
+      <li><a href="./index.html" target="_blank">新浪彩通</a></li>
+      <li><a href="./index.html" target="_blank">足彩专题</a></li>
+      <li><a href="./index.html" target="_blank">动态澳盘</a></li>
+      <li><a href="./index.html" target="_blank">及时欧赔</a></li>
+      <li><a href="./index.html" target="_blank">数据库</a></li>
+      <li><a href="./index.html" target="_blank">全国开奖</a></li>
+      <li><a href="./index.html" target="_blank">数字彩</a></li>
+      <li><a href="./index.html" target="_blank">经典图标</a></li>
+    </ul>
+  </div>
+  <div class="e_height500">
+    <div class="d_headerVsBox clearfix">
+      <script id="temp_header" type="text/html">
+        <div class="d_h_leftBox d_h_vsBox">
+          <img src="http://n.sinaimg.cn/sports/0d703a2a/20160513/{{Team1Id}}.png" alt="" class="d_h_flagsL">
+          <span>{{Team1}}</span>
+          <em>{{Team1en}}</em>
+        </div>
+        <div class="d_h_midBox">
+          <dl>
+            <dt>2016欧洲杯小组赛</dt>
+            <dd class="d_h_NO">第{{group}}轮</dd>
+            <dd class="d_h_when">比赛时间&nbsp;&nbsp;{{MatchDate}}&nbsp;&nbsp;{{week_cn}}&nbsp;&nbsp;{{MatchTime}}</dd>
+            <dd class="d_h_time">{{# distance}}</dd>
+            <dd class="d_h_where">球场－{{Situation}}</dd>
+          </dl>
+        </div>
+        <div class="d_h_rightBox d_h_vsBox">
+          <img src="http://n.sinaimg.cn/sports/0d703a2a/20160513/{{Team2Id}}.png" alt="" class="d_h_flagsR">
+          <span>{{Team2}}</span>
+          <em>{{Team2en}}</em>
+        </div>
+      </script>
+    </div>
+    <div class="md" id="modelData">
+      <div class="md_item" id="md_sx">
+        
+      </div>
+      <div class="md_item" id="md_spf">
+        
+      </div>
+      <div class="md_item" id="md_dx">
+        
+      </div>
+      <!-- 赛前 上下盘（亚盘）预测z_sx -->
+      <script type="text/html" id="md_match_pre_z_sx_tmp">
+        <div class="md_item_title">亚盘预测</div>
+        <div class="md_item_main">
+          <a href="javascript:;" class="md_btn_purchase" data-id="{{data.livecast_id}}" data-pankou="{{data.ULTape}}" data-type="z_sx" data-home="{{data.Team1}}" data-guest="{{data.Team2}}" data-date="{{data.MatchDate}} {{data.MatchTime}}"></a>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_sx_no_tmp">
+        <div class="md_item_title">亚盘预测</div>
+        <div class="md_item_main">
+          <a href="javascript:;" class="md_btn_purchase_no" data-type="z_sx"></a>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_sx_haspay_tmp">
+        <div class="md_type_box">
+          <div class="md_score_home">
+            {{data.sx_per1}}%
+          </div>
+          <div class="md_score_guest">
+            {{data.sx_per3}}%
+          </div>
+          <span class="md_type">{{data.sx_pankou_cn}}</span>
+        </div>
+        <div class="md_percent">
+          <div class="md_per1"></div>
+          <div class="md_per2" style="width:{{data.sx_pw}}px;"></div>
+          <span class="md_per_name">亚盘</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_i1"></div>
+          <div class="mde_i2"></div>
+          <div class="mde_t1">主胜概率百分比</div>
+          <div class="mde_t2">客胜概率百分比</div>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_sx_analysis_tmp">
+        <div class="md_type_box">
+          <span class="md_type">亚盘</span>
+        </div>
+        <div class="md_percent">
+          <span class="md_per_name">{{data.nodata}}</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_i1"></div>
+          <div class="mde_i2"></div>
+          <div class="mde_t1">主胜概率百分比</div>
+          <div class="mde_t2">客胜概率百分比</div>
+        </div>
+      </script>
+      <!-- 赛中 赛后 上下盘预测z_sx -->
+      <script type="text/html" id="md_match_in_z_sx_tmp">
+        <div class="md_type_box">
+          <div class="md_score_home">
+            {{data.sx_per1}}%
+          </div>
+          <div class="md_score_guest">
+            {{data.sx_per3}}%
+          </div>
+          <span class="md_type">{{data.sx_pankou_cn}}</span>
+        </div>
+        <div class="md_percent">
+          <div class="md_per1"></div>
+          <div class="md_per2" style="width:{{data.sx_pw}}px;"></div>
+          <span class="md_per_name">亚盘</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_i1"></div>
+          <div class="mde_i2"></div>
+          <div class="mde_t1">主胜概率百分比</div>
+          <div class="mde_t2">客胜概率百分比</div>
+        </div>
+      </script>
+
+
+      <!-- 赛前 胜平负预测z_spf -->
+      <script type="text/html" id="md_match_pre_z_spf_tmp">
+        <div class="md_item_title">胜平负预测</div>
+        <div class="md_item_main">
+          <a href="javascript:;" class="md_btn_purchase" data-id="{{data.livecast_id}}" data-pankou="" data-type="z_spf" data-home="{{data.Team1}}" data-guest="{{data.Team2}}" data-date="{{data.MatchDate}} {{data.MatchTime}}"></a>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_spf_no_tmp">
+        <div class="md_item_title">亚盘预测</div>
+        <div class="md_item_main">
+          <a href="javascript:;" class="md_btn_purchase_no" data-type="z_spf"></a>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_spf_haspay_tmp">
+        <div class="md_type_box">
+          <div class="md_score_home">
+            {{data.spf_per1}}%
+          </div>
+          <div class="md_score_guest">
+            {{data.spf_per3}}%
+          </div>
+          <span class="md_type">{{data.spf_per2}}%</span>
+        </div>
+        <div class="md_percent">
+          <div class="md_per1"></div>
+          <div class="md_per2" style="width:{{data.spf_pw}}px;"></div>
+          <div class="md_per3" style="width:{{data.spf_pw1}}px;"></div>
+          <span class="md_per_name">胜平负</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_spf_i1"></div>
+          <div class="mde_spf_i2"></div>
+          <div class="mde_spf_i3"></div>
+          <div class="mde_spf_t1">胜</div>
+          <div class="mde_spf_t2">平</div>
+          <div class="mde_spf_t3">负</div>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_spf_analysis_tmp">
+        <div class="md_type_box">
+          <span class="md_type">胜平负</span>
+        </div>
+        <div class="md_percent">
+          <span class="md_per_name">{{data.nodata}}</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_spf_i1"></div>
+          <div class="mde_spf_i2"></div>
+          <div class="mde_spf_i3"></div>
+          <div class="mde_spf_t1">胜</div>
+          <div class="mde_spf_t2">平</div>
+          <div class="mde_spf_t3">负</div>
+        </div>
+      </script>
+      <!-- 赛中 赛后 上下盘预测z_spf -->
+      <script type="text/html" id="md_match_in_z_spf_tmp">
+        <div class="md_type_box">
+          <div class="md_score_home">
+            {{data.spf_per1}}%
+          </div>
+          <div class="md_score_guest">
+            {{data.spf_per3}}%
+          </div>
+          <span class="md_type">{{data.spf_per2}}%</span>
+        </div>
+        <div class="md_percent">
+          <div class="md_per1"></div>
+          <div class="md_per2" style="width:{{data.spf_pw}}px;"></div>
+          <div class="md_per3" style="width:{{data.spf_pw1}}px;"></div>
+          <span class="md_per_name">胜平负</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_spf_i1"></div>
+          <div class="mde_spf_i2"></div>
+          <div class="mde_spf_i3"></div>
+          <div class="mde_spf_t1">胜</div>
+          <div class="mde_spf_t2">平</div>
+          <div class="mde_spf_t3">负</div>
+        </div>
+      </script>
+
+      <!-- 赛前 大小球预测z_dx -->
+      <script type="text/html" id="md_match_pre_z_dx_tmp">
+        <div class="md_item_title">大小球预测</div>
+        <div class="md_item_main">
+          <a href="javascript:;" class="md_btn_purchase" data-id="{{data.livecast_id}}" data-pankou="{{data.DXTape}}" data-type="z_dx" data-home="{{data.Team1}}" data-guest="{{data.Team2}}" data-date="{{data.MatchDate}} {{data.MatchTime}}"></a>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_dx_no_tmp">
+        <div class="md_item_title">亚盘预测</div>
+        <div class="md_item_main">
+          <a href="javascript:;" class="md_btn_purchase_no" data-type="z_dx"></a>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_dx_haspay_tmp">
+        <div class="md_type_box">
+          <div class="md_score_home">
+            {{data.dx_per1}}%
+          </div>
+          <div class="md_score_guest">
+            {{data.dx_per3}}%
+          </div>
+          <span class="md_type">{{data.dx_pankou_cn}}</span>
+        </div>
+        <div class="md_percent">
+          <div class="md_per1"></div>
+          <div class="md_per2" style="width:{{data.dx_pw}}px;"></div>
+          <span class="md_per_name">大小球</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_i1"></div>
+          <div class="mde_i2"></div>
+          <div class="mde_t1">大球</div>
+          <div class="mde_t2">小球</div>
+        </div>
+      </script>
+      <script type="text/html" id="md_match_pre_z_dx_analysis_tmp">
+        <div class="md_type_box">
+          <span class="md_type">大小球</span>
+        </div>
+        <div class="md_percent">
+          <span class="md_per_name">{{data.nodata}}</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_i1"></div>
+          <div class="mde_i2"></div>
+          <div class="mde_t1">大球</div>
+          <div class="mde_t2">小球</div>
+        </div>
+      </script>
+      <!-- 赛中 赛后 上下盘预测z_dx -->
+      <script type="text/html" id="md_match_in_z_dx_tmp">
+        <div class="md_type_box">
+          <div class="md_score_home">
+            {{data.dx_per1}}%
+          </div>
+          <div class="md_score_guest">
+            {{data.dx_per3}}%
+          </div>
+          <span class="md_type">{{data.dx_pankou_cn}}</span>
+        </div>
+        <div class="md_percent">
+          <div class="md_per1"></div>
+          <div class="md_per2" style="width:{{data.dx_pw}}px;"></div>
+          <span class="md_per_name">大小球</span>
+        </div>
+        <div class="md_explain">
+          <div class="mde_i1"></div>
+          <div class="mde_i2"></div>
+          <div class="mde_t1">大球</div>
+          <div class="mde_t2">小球</div>
+        </div>
+      </script>
+    </div>
+  </div>
+  <div class="d_h_tabBox">
+    <ul>
+      <!-- <li class="d_h_tabCurrent"><a href="//odds.sports.sina.com.cn/uefa/base/?m_id=3453592">数据分析</a></li>
+      <li><a href="//odds.sports.sina.com.cn/uefa/europe/?m_id=3453592">欧洲赔率</a></li>
+      <li><a href="//odds.sports.sina.com.cn/uefa/asia/?m_id=3453592">亚洲盘口</a></li> -->
+    </ul>
+  </div>
+</div>
+
+<div class="md_tips">小炮正在努力预测中，暂时无法购买！</div>

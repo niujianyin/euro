@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>欧洲杯智能平台_新浪彩通</title>
+  <link rel="import" href="h/commonHead.html?__inline">
+  <link rel="stylesheet" href="l/common.less" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="l/index.less" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="l/details.less" type="text/css" media="screen">
+</head>
+
+<body>
+<!-- 头部 html start -->
+<!--  lb__link-->
+<link rel="import" href="h/dataHeader.html?__inline">
+<!--  lb__link-->
+<script src="./j/lib/jquery-1.11.1.min.js"></script>
+<!--[if lte IE 9]>
+<script src="./j/lib/respond.min.js"></script>
+<script src="./j/lib/html5shiv.min.js"></script>
+<![endif]-->
+<!-- 登录组件js -->
+<script type="text/javascript" src="./j/lib/lib_top.js"></script>
+<script type="text/javascript" src="./j/sinaLogin.js"></script>
+<!-- 头部 html end -->
+<!--	主体内容start-->
+<div class="d_main wrap">
+  <!--	球队整体实力-->
+  <div class="d_line1Box d_lineBorder clearfix">
+    <dl class="d_l1_left">
+      <dt><em>球队整体实力</em></dt>
+      <dd></dd>
+    </dl>
+    <dl class="d_l1_right">
+      <dt class="clearfix"><em>智能关键球员</em>
+      <div class="d_l1_mvpBox">
+      </div>
+      </dt>
+      <dd></dd>
+    </dl>
+  </div>
+  <!--		历史交战记录-->
+  <div class="d_line2Box d_lineBorder">
+
+    <div class="d_lineHeader">
+      <span>历史交战记录</span>
+    </div>
+    <div class="d_l2_chooseBox clearfix">
+      <div class="d_l2_selectBox">
+        近
+        <select class="d_l2_select ">
+
+        </select> 场
+      </div>
+      <div class="d_l2_checkBoxContainer">
+        <script id="temp_chooseHistory" type="text/html">
+          {{each leagues as value index}}
+          <input type="radio" name="d_l2_check" value="{{index}}">
+          <label for="">{{value}}</label>
+
+          {{/each}}
+        </script>
+      </div>
+    </div>
+    <div id="d_historyBox">
+      <script id="temp_histroyVS" type="text/html">
+        <table class="d_l2_dataTable">
+          <tr class="d_l2_dataHeader">
+            <th>类型</th>
+            <th class="d_l2_dataTime">日期</th>
+            <th>主场</th>
+            <th>盘口</th>
+            <th>客场</th>
+            <th>比分</th>
+            <th>胜负</th>
+            <th>盘路</th>
+            <th>大小</th>
+          </tr>
+          {{each data as value index}}
+          <tr>
+            <td class="d_l2_dataType{{value.LeagueType}} d_l2_dataType"
+                style="color:#fff;background-color:{{leagues_color[value.LeagueType]}}">{{value.LeagueType_cn}}
+            </td>
+            <td>{{value.date}}</td>
+            <td>{{value.Team1}}</td>
+            <td>{{value.pankou}}</td>
+            <td>{{value.Team2}}</td>
+            <td class="d_l2_dataRed">{{value.Score1}}-{{value.Score2}}</td>
+            <td class="d_l2_dataRed">{{value.win_lose}}</td>
+            <td class="d_l2_dataRed">{{value.panlu}}</td>
+            <td class="d_l2_dataRed">{{value.big_small}}</td>
+          </tr>
+          {{/each}}
+        </table>
+        <div class="d_l2_dataInfo">双方近{{count}}次交战，<em>{{Team1Win}}</em>胜<em>{{Team1Draw}}</em>平<em>{{Team1Lose}}</em>负，进<em>{{Team1Goal}}</em>球，失<em>{{Team1LoseGoal}}</em>球，赢盘率
+          : <em>{{panlu_percent}}%</em></div>
+      </script>
+    </div>
+  </div>
+  <!--		近期战绩-->
+  <div class="d_line3Box d_lineBorder">
+    <div class="d_lineHeader">
+      <span>近期战绩</span>
+    </div>
+    <div class="clearfix d_l3_container">
+      <div class="d_l3_homeBox">
+        <div class="d_l3_chooseBox clearfix">
+          <div class="d_l3_selectBox" id="d_l3_selectH">
+          </div>
+          <ul class="d_l3_tab" id="d_l3L_tab">
+            <li class="d_l3_tabCurrent">总</li>
+            <li>主</li>
+            <li>客</li>
+          </ul>
+          <div class="d_l3_checkBox" id="d_chooseHnear">
+            <script id="temp_chooseHnear" type="text/html">
+              {{each leagues as value index}}
+              <input type="radio" name="d_l2_check" value="{{index}}">
+              <label for="">{{value}}</label>
+
+              {{/each}}
+              <input type="radio" name="d_l2_check" value="all" checked="checked" id="HchooseOne">
+              <label for="">全部</label>
+            </script>
+          </div>
+        </div>
+        <div id="d_HnearVs"></div>
+        <script id="temp_HnearVs" type="text/html">
+          <table class="d_l3_data">
+            <tr class="d_l3_dataHead">
+              <th>赛事</th>
+              <th class="d_l3_dataTime">日期</th>
+              <th class="d_l3_dataVs">对阵</th>
+              <th>盘口</th>
+              <th>胜负</th>
+              <th>盘路</th>
+              <th>大小</th>
+            </tr>
+            {{each data as value index}}
+            <tr class=" ">
+              <td class="d_l3L_dataType{{value.LeagueType}}e d_l3L_dataType d_l3L_ifH{{value.Team1Id}}e"
+                  style="color:#fff;background-color:{{leagues_color[value.LeagueType]}}">{{value.LeagueType_cn}}
+              </td>
+              <td>{{value.date}}</td>
+              <td>{{value.Team1}}{{value.Score1}}-{{value.Score2}}{{value.Team2}}</td>
+              <td>{{value.pankou}}</td>
+              <td class="d_l2_dataRed">{{value.win_lose}}</td>
+              <td class="d_l2_dataRed">{{value.panlu}}</td>
+              <td class="d_l2_dataRed">{{value.big_small}}</td>
+            </tr>
+            {{/each}}
+          </table>
+          <div class="d_l3_CanvasBox ">
+            <div class="d_l3_canvasHead">
+              <span class="d_l3_blueF"> {{Team1}}</span> 近 {{data.length}}场比赛
+              <span class="d_l3_redF">{{Team1Win}}</span>胜<span class="d_l3_redF">{{Team1Draw}}</span>平<span
+              class="d_l3_redF">{{Team1Lose}}</span>负，赢盘率<span class="d_l3_redF">{{win_percent}}%</span>
+            </div>
+            <div class="d_l3_leftCanvas"></div>
+            <div class="d_l3_canvasLabel">
+              胜率{{win_percent}}％  &nbsp;
+              {{data | wordList}}
+            </div>
+            <div class="d_l3_canvasPersent">{{win_percent}} <span>%</span></div>
+          </div>
+        </script>
+
+      </div>
+      <div class="d_l3_guestBox">
+        <div class="d_l3_chooseBox clearfix">
+          <div class="d_l3_selectBox" id="d_l3_selectG">
+          </div>
+          <ul class="d_l3_tab" id="d_l3R_tap">
+            <li class="d_l3_tabCurrent">总</li>
+            <li>主</li>
+            <li>客</li>
+          </ul>
+          <div class="d_l3_checkBox" id="d_chooseGnear">
+            <script id="temp_chooseGnear" type="text/html">
+              {{each leagues as value index}}
+              <input type="radio" name="d_l2_checkR" value="{{index}}">
+              <label for="">{{value}}</label>
+              {{/each}}
+              <input type="radio" name="d_l2_checkR" value="all" checked="checked" id="GchooseOne">
+              <label for="">全部</label>
+            </script>
+          </div>
+        </div>
+        <div id="d_GnearVs"></div>
+        <script id="temp_GnearVs" type="text/html">
+          <table class="d_l3_data">
+            <tr class="d_l3_dataHead">
+              <th>赛事</th>
+              <th class="d_l3_dataTime">日期</th>
+              <th class="d_l3_dataVs">对阵</th>
+              <th>盘口</th>
+              <th>胜负</th>
+              <th>盘路</th>
+              <th>大小</th>
+            </tr>
+            {{each data as value index}}
+            <tr class="">
+              <td class="d_l3R_dataType{{value.LeagueType}}e d_l3R_dataType d_l3R_ifH{{value.Team1Id}}e"
+                  style="color:#fff;background-color:{{leagues_color[value.LeagueType]}}">{{value.LeagueType_cn}}
+              </td>
+              <td>{{value.date}}</td>
+              <td>{{value.Team1}}{{value.Score1}}-{{value.Score2}}{{value.Team2}}</td>
+              <td>{{value.pankou}}</td>
+              <td class="d_l2_dataRed">{{value.win_lose}}</td>
+              <td class="d_l2_dataRed">{{value.panlu}}</td>
+              <td class="d_l2_dataRed">{{value.big_small}}</td>
+            </tr>
+            {{/each}}
+          </table>
+          <div class="d_l3_CanvasBox ">
+            <div class="d_l3_canvasHead">
+              <span class="d_l3_blueF"> {{Team1}}</span> 近 {{count}}场比赛
+              <span class="d_l3_redF">{{Team1Win}}</span>胜<span class="d_l3_redF">{{Team1Draw}}</span>平<span
+              class="d_l3_redF">{{Team1Lose}}</span>负，赢盘率<span class="d_l3_redF">{{win_percent}}%</span>
+            </div>
+            <div class="d_l3_rightCanvas"></div>
+            <div class="d_l3_canvasLabel">
+              胜率{{win_percent}}％ &nbsp;
+              {{data | wordList}}
+            </div>
+            <div class="d_l3_canvasPersent">{{win_percent}} <span>%</span></div>
+          </div>
+        </script>
+
+      </div>
+    </div>
+  </div>
+  <!--未来赛事-->
+  <div class="d_line4Box d_lineBorder">
+    <div class="d_lineHeader">
+      <span>未来赛事</span>
+    </div>
+    <div class="clearfix d_l3_container">
+      <div class="d_l3_homeBox">
+        <table class="d_l3_data" id="d_Hfuture">
+          <script id="temp_Hfuture" type="text/html">
+            <tr class="d_l3_dataHead">
+              <th>赛事</th>
+              <th class="d_l3_dataTime">日期</th>
+              <th class="d_l3_dataVs">对阵</th>
+              <th>相隔</th>
+            </tr>
+            {{each data as value index}}
+            <tr>
+              <td class="" style="">{{value.LeagueType_cn}}</td>
+              <td class="">{{value.date}}</td>
+              <td class="">{{value.Team1}}{{value.Score1}}-{{value.Score2}}{{value.Team2}}</td>
+              <th>{{value.date | distance}}天</th>
+            </tr>
+            {{/each}}
+          </script>
+        </table>
+      </div>
+      <div class="d_l3_guestBox">
+        <table class="d_l3_data" id="d_Gfuture">
+          <script id="temp_Gfuture" type="text/html">
+            <tr class="d_l3_dataHead">
+              <th>赛事</th>
+              <th class="d_l3_dataTime">日期</th>
+              <th class="d_l3_dataVs">对阵</th>
+              <th>相隔</th>
+            </tr>
+            {{each data as value index}}
+            <tr>
+              <td class="" style="">{{value.LeagueType_cn}}</td>
+              <td class="">{{value.date}}</td>
+              <td class="">{{value.Team1}}{{value.Score1}}-{{value.Score2}}{{value.Team2}}</td>
+              <th>{{value.date | distance}}天</th>
+            </tr>
+            {{/each}}
+          </script>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--		相关新闻-->
+  <div class="d_line5Box d_lineBorder">
+    <div class="d_lineHeader">
+      <span>相关新闻</span>
+    </div>
+    <div class="d_l5_newsBox clearfix">
+      <dl class="d_l5_newsHome d_l5_news">
+        <script id="temp_newsHome" type="text/html">
+          <dt>{{teamName}}</dt>
+          {{each data as value index}}
+          <dd><em>·</em><a href="{{value.url}}">{{value.title}}</a></dd>
+          {{/each}}
+        </script>
+
+      </dl>
+      <dl class="d_l5_newsGuest d_l5_news">
+        <script id="temp_newsGuest" type="text/html">
+          <dt>{{teamName}}</dt>
+          {{each data as value index}}
+          <dd><em>·</em><a href="{{value.url}}">{{value.title}}</a></dd>
+          {{/each}}
+        </script>
+      </dl>
+    </div>
+  </div>
+</div>
+<input type="hidden" name="otherData" id="i_watchData"/>
+<!--	主体内容end-->
+  <!-- 弹出层 html start -->
+  <link rel="import" href="h/popup.html?__inline">
+  <!-- 弹出层 html end -->
+<!-- 底部 html start -->
+<link rel="import" href="h/footer.html?__inline">
+<!-- 底部 html start -->
+<script type="text/javascript" src="j/lib/template.js"></script>
+<script type="text/javascript" src="j/lib/echarts.min.js"></script>
+<script type="text/javascript" src="j/watch_mainP.js"></script>
+
+</body>
+
+</html>

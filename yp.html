@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>欧洲杯智能平台_新浪彩通</title>
+  <link rel="import" href="h/commonHead.html?__inline">
+  <link rel="stylesheet" href="l/yp.less" type="text/css" media="screen" />
+</head>
+<body>
+  <!-- 手动配置文件 -->
+  <script type="text/javascript" src="./j/yp_config.js"></script>
+  <!-- 头部 html start -->
+  <link rel="import" href="h/header_yp.html?__inline">
+  <script src="./j/lib/jquery-1.11.1.min.js"></script>
+  <!--[if lte IE 9]>
+  <script src="./j/lib/respond.min.js"></script>
+  <ypscript src="./j/lib/html5shiv.min.js"></script>
+  <![endif]-->
+  <!-- 登录组件js -->
+  <script type="text/javascript" src="./j/lib/lib_top.js"></script>
+
+  <!-- 内容主体 html start -->
+  <div id="yp_head" class="ypbox">
+    <div class="wrap">
+      <a href="http://euro.sina.com.cn/lottery/" class="yp_euro" target="_blank"></a>
+    </div>
+  </div>
+  <div id="yp_00" class="ypbox" data-box="yp_00">
+  <script type="text/html" id="yp_00_tmp">
+    <div class="wrap">
+    {{each data as value index}}
+      <a href="#yp_link_0{{index+1}}" class="yp_go" id="yp_go_0{{index}}">
+      {{ if index == 4  }}
+        {{# getMsg(value)}}
+      {{ else if index == 5}}
+        {{# getMsg(value)}}
+      {{ else }}
+        <span class="yp_go_txt yp_go_txt_0{{value.status}}">{{ getMsg(value)}}</span>
+      {{ /if}}
+      </a>
+    {{/each}}
+    </div>
+  </script>
+  </div>
+  <a name="yp_link_01"></a> 
+  <div id="yp_01" class="ypbox" data-box="yp_01">
+  <script type="text/html" id="yp_01_tmp">
+    <div class="wrap">
+      <div class="yp_explain" id="yp_01_explain">{{# data[0].explain}}</div>
+      {{each data as value index}}
+      <div class="yp_all {{ getPay(value.status)}}" id="yp_all_0{{index}}" data-idx="{{index}}" data-dobj="yp_01">
+        <div class="yp_price">¥<em>{{value.price}}</em></div>
+        <div class="yp_oldprice">¥{{value.oldprice}}</div>
+        <div class="yp_msg">{{ getMsg(value)}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+  </div>
+  <a name="yp_link_02"></a> 
+  <div id="yp_02" class="ypbox" data-box="yp_02">
+  <script type="text/html" id="yp_02_tmp">
+    <div class="wrap">
+      <div class="yp_explain" id="yp_02_explain">{{# data[0].explain}}</div>
+      {{each data as value index}}
+      <div class="yp_group {{ getPay(value.status)}}" id="yp_group_0{{index}}" data-idx="{{index}}" data-dobj="yp_02">
+        <div class="yp_price">¥<em>{{value.price}}</em></div>
+        <div class="yp_oldprice">¥{{value.oldprice}}</div>
+        <div class="yp_msg">{{ getMsg(value)}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+  </div>
+  <a name="yp_link_03"></a> 
+  <div id="yp_03" class="ypbox" data-box="yp_03">
+  <script type="text/html" id="yp_03_tmp">
+    <div class="wrap">
+      <div class="yp_explain" id="yp_03_explain">{{# data[0].explain}}</div>
+      {{each data as value index}}
+      <div class="yp_out {{ getPay(value.status)}}" id="yp_out_0{{index}}" data-idx="{{index}}" data-dobj="yp_03">
+        <div class="yp_price">¥<em>{{value.price}}</em></div>
+        <div class="yp_oldprice">¥{{value.oldprice}}</div>
+        <div class="yp_msg">{{ getMsg(value)}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+  </div>
+  <a name="yp_link_04"></a> 
+  <div id="yp_04" class="ypbox" data-box="yp_04">
+  <script type="text/html" id="yp_04_tmp">
+    <div class="wrap">
+    {{each data as value index}}
+      <div class="yp_team" id="yp_team_{{value.id}}" data-dobj="yp_04">
+        <div class="yp_team_ul">
+          <div class="{{ getTeamLi(value.z_sx)}}" data-game="z_sx">
+            <span class="yp_team_li_icon"></span>
+            亚盘
+          </div>
+          <div class="{{ getTeamLi(value.z_spf)}}" data-game="z_spf">
+            <span class="yp_team_li_icon"></span>
+            胜平负
+          </div>
+          <div class="{{ getTeamLi(value.z_dx)}}" data-game="z_dx">
+            <span class="yp_team_li_icon"></span>
+            大小球
+          </div>
+        </div>
+        <div data-idx="{{index}}" class="yp_team_pay {{ getTeamBtn(value.status)}}">{{ getMsg(value)}}</div>
+      </div>
+    {{/each}}
+    </div>
+  </script>
+  </div>
+  <a name="yp_link_05"></a> 
+  <div id="yp_05" class="ypbox" data-box="yp_05">
+    <div class="yp_05_h"></div>
+    <div id="yp_05_main">
+      <script type="text/html" id="yp_05_tmp">
+        {{each data as value index}}
+        <div class="yp_05_m">
+          <div class="wrap">
+            <div class="yp_05_title">2016欧洲杯0{{index+1}}场</div>
+            <div class="yp_05_subtitle">{{value.date}} {{value.time}}</div>
+            <div class="yp_05_hflag"><img src="{{flag(value.Team1Id)}}" alt="{{data.Team1}}"></div>
+            <div class="yp_05_hname">{{value.Team1}}</div>
+            <div class="yp_05_gflag"><img src="{{flag(value.Team2Id)}}" alt="{{data.Team2}}"></div>
+            <div class="yp_05_gname">{{value.Team2}}</div>
+            <a href="http://euro.sina.com.cn/lottery/#smart_alink_0{{index}}" class="{{ yp05Btn(index)}}" target="_blank"></a>
+          </div>
+        </div>
+        {{/each}}
+      </script>
+    </div>
+    <div class="yp_05_b"></div>
+  </div>
+  <a name="yp_link_06" class="ypbox" data-box="yp_06"></a> 
+  <div id="yp_06">
+    <div class="wrap">
+      <a href="http://euro.sina.com.cn/lottery/#smart_alink_00" class="yp_06_euro" target="_blank"></a>
+    </div>
+  </div>
+  <div id="yp_footer" class="ypbox" data-box="yp_07">
+    <a href="http://euro.sina.com.cn/lottery/#smart_alink_00" class="yp_07_euro" target="_blank"></a>
+  </div>
+  <!-- 内容主体 html end  -->
+
+  <!-- 弹出层 html start -->
+  <link rel="import" href="h/popup_yp.html?__inline">
+  <!-- 弹出层 html end -->
+
+  <script type="text/javascript" charset="utf-8" src="./j/yp.js"></script>
+</body>
+</html>

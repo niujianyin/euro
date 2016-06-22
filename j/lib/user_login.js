@@ -2,13 +2,16 @@
   util.loginSucc = function(){
     util.log("login success");
   };
+  util.loginOut = function(){
+    util.log("login out");
+  };
   window.__SinaTopBar__.user.init(document.getElementById('SI_User'),{
     entry :'caitong',
     login_success:function(){
       util.loginSucc();
     },
     logout_success:function(){
-
+      util.loginOut();
     }
   });
   var sinaLoginLayer = SINA_OUTLOGIN_LAYER;

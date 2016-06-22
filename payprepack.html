@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>欧洲杯智能平台_新浪彩通</title>
+  <link rel="import" href="h/commonHead.html?__inline">
+  <link rel="stylesheet" href="l/common.less" type="text/css" media="screen" />
+</head>
+<body>
+  <!-- 头部 html start -->
+  <link rel="import" href="h/header1.html?__inline">
+  <script src="./j/lib/jquery-1.11.1.min.js"></script>
+  <!--[if lte IE 9]>
+  <script src="./j/lib/respond.min.js"></script>
+  <script src="./j/lib/html5shiv.min.js"></script>
+  <![endif]-->
+  <!-- 登录组件js -->
+  <script type="text/javascript" src="./j/lib/lib_top.js"></script>
+  <script type="text/javascript" src="./j/sinaLogin.js"></script>
+  <!-- 头部 html start -->
+
+  <!-- 内容主体 html start -->
+  <div id="container1" class="wrap">
+    <input type="hidden" value="D1605261057018327995" id="orderNo" />
+    <input type="hidden" value="519526" id="memberId" />
+    <input type="hidden" value="139180" id="matchId" />
+    <div class="pre_head">
+      <span class="pre_head_icon"></span>
+      <span class="pre_head_txt">订单支付</span>
+    </div>
+    <div class="pre_info">
+      <table class="pre_table">
+        <tbody>
+          <tr>
+            <th>订单号</th>
+            <th>类型</th>
+            <th>玩法</th>
+            <th>价格</th>
+          </tr>
+          <tr>
+            <td>D1605271533596357087</td>
+            <td>全赛事礼包</td>
+            <td>大小球</td>
+            <td class="pre_price">1元<span class="pre_oldprice">29元</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="pre_way">
+      <a href="javascript:;" id="pre_way_wb" data-way="wb" class="pre_way_btn">微博支付</a>
+      <a href="javascript:;" id="pre_way_zfb" data-way="zfb" class="pre_way_btn pre_way_cur">支付宝支付</a>
+      <a href="javascript:;" id="pre_way_wx" data-way="wx" class="pre_way_btn">微信支付</a>
+      <span class="pre_way_icon"></span>
+      <div class="pre_way_shouldpay">
+        应付金额：<span>29</span>元
+      </div>
+    </div>
+    <div class="pre_pay">
+      <input type="checkbox" id="pre_hasRead" checked="checked">
+      <label>我已阅读《新浪智能付费/免费服务使用协议》</label>
+      <a style="background-color: #ff5500;" href="javascript:;" id="pre_pay_btn">立即支付</a>
+    </div>
+  </div>
+  <!-- 内容主体 html end  -->
+  <div id="mask"></div>
+  <div id="pre_popup">
+    <div class="pre_popup_title">《新浪智能付费/免费服务使用协议》</div>
+    <div class="pre_popup_main">
+      在享受智能服务前，请您知悉并同意以下内容：<br>
+      在享受智能平台服务前，请用户（下称"您"）知悉并同意以下内容：<br>
+      1、智能平台以及智能发布的内容不作为您投注的依据，您接受智能服务后须独立作出投资决策，风险自担。请您确认自己具有相应的权利能力和行为能力，能够独立承担法律责任。无论付费或是免费服务，都不能确保您获得盈利或本金不受损失。彩票有风险，购买须谨慎。<br>
+      2、新浪智能平台上所有发布的内容，平台不对内容的准确性负责。不应成为您作出任何投资或其他决定的依据。<br>
+      3、智能平台享有所发布内容的知识产权，未经智能平台书面许可，您不得对外传播或许可第三人使用服务的全部内容或部分内容，不得通过非官方技术手段获取内容，否则平台有权单方面解除服务关系，服务费用将作为罚金不再退还，平台保留最终诉诸法律、追偿损失的权利。<br>
+      4、为保障您的权益，请您不要通过其他平台或者线下接受智能的服务，也不要接受非本平台约定的服务，否则由此造成的风险和损失由您自行承担，与平台无关，平台并对此不承担任何责任。<br>
+      5、请您对自己的各类账号密码严格保密，勿将个人资产交由其他人管理，否则由此导致的风险和损失由您自行承担，与平台无关，平台对此不承担任何责任。<br>
+      6、因无法预测或无法控制的设备故障、通讯故障、网络故障等技术原因以及其它不可抗力而造成智能平台服务中断的情况，平台不承担责任。<br>
+      7、智能平台服务主要是赛事的胜负，让分，大小分为主，您在使用上述具体服务时还需同时遵守该项服务具体的服务协议。<br>
+      8、平台有权在必要时单方修改或变更本协议之内容，增加、减少、修改或变更各类规则，并将通过平台网站公布最新的服务协议及规则，变更后的协议及规则自公布时生效。若您于任何修改或变更本条款后继续使用平台服务，则视为已认真阅读、充分了解并同意接受修改后之协议；若您不同意部分或全部修改条款，则应主动停止使用与变更内容相关的服务。<br>
+      9、如您已经使用智能平台的服务，则视为您本人已同意本协议以及相应的单项服务协议。
+    </div>
+    <div id="pre_close"><span id="pre_popup_close"></span></div>
+  </div>
+
+  <!-- 弹出层 -->
+  <div id="mask"></div>
+  <!-- 没有预测数据的提示 -->
+  <div id="popup_layout_msg" class="popup_box">
+    <div class="popup_icon"></div>
+    <a href="javascript:;" class="popup_btn_close"></a>
+    <div class="popup_info">
+      <div id="popup_msg"></div>
+    </div>
+    <div class="popup_operate">
+      <div class="popup_pay_box">
+        <a href="javascript:;" class="popup_btn_know">知道了</a>
+      </div>
+    </div>
+  </div>
+  <!-- 弹出层 html end -->
+  
+  <!-- 底部 html start -->
+  <link rel="import" href="h/footer.html?__inline">
+  <!-- 底部 html end -->
+  
+  <script type="text/javascript" charset="utf-8" src="./j/lib/lib.js"></script>
+
+  <script type="text/javascript">
+  seajs.config({
+    alias:{
+      payprepack:"./j/payprepack.js"
+    }
+  });
+  seajs.use(["payprepack"]);
+  </script>
+</body>
+</html>
