@@ -9,8 +9,8 @@ udvDefine(function(require,exports,module){
   if(location.href.indexOf('date.html')>0){
     window.__curdate = util.getQueryString("curdate") || '2016-06-11';
   }
-  
-  // var matchSlider = require("matchSlider");//首屏比赛条  暂时用这个 
+
+  // var matchSlider = require("matchSlider");//首屏比赛条  暂时用这个
   var matchbar = require("matchbar");//首屏比赛条  有数据后修改
   var choicedate = require("choicedate");//选择日期
   var purchase = require("purchase");//购买小炮预测
@@ -27,12 +27,12 @@ udvDefine("matchbar",function(require,exports,module){
      *jQuery对象
      *$match 外层容器（包含左右点击滚动区域）
      *$list 滚动区域容器
-     */ 
+     */
     var $match = $("#match"), $list = $("#match_list"), $tmp = $("#match_list_tmp");
     util.MATCHSTATUS = ['','未开始','已开赛','已结束'];
     util.MATCHSTATUSCLASS = ['','status_pre','status_duing','status_over'];
     // 日期处理
-    function getcurtime(date,mindate,maxdate){ 
+    function getcurtime(date,mindate,maxdate){
       var datetime = new Date(date.replace(/-/g,'/')).getTime();
       var mintime = new Date(mindate.replace(/-/g,'/')).getTime();
       var maxtime = new Date(maxdate.replace(/-/g,'/')).getTime();
@@ -44,7 +44,7 @@ udvDefine("matchbar",function(require,exports,module){
         return date;
       }
     }
-    function getspantime(date,maxdate){ 
+    function getspantime(date,maxdate){
       var datetime = new Date(date.replace(/-/g,'/')).getTime();
       var maxtime = new Date(maxdate.replace(/-/g,'/')).getTime();
       if(datetime > maxtime){
@@ -122,7 +122,7 @@ udvDefine("matchbar",function(require,exports,module){
     /**
      * 定时器实例
      * 1分钟（60 * 1000）请求一次接口
-     */ 
+     */
     var MatchLoader = new timeLoader({
       url: 'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=livecast&_sport_a_=dateMatches&begin='+begindate+'&LeagueType=9&timespan='+timespan,
       param: '',
@@ -145,13 +145,13 @@ udvDefine("matchbar",function(require,exports,module){
       // console.log(matchData);
       template.helper("gdate", function(date){
         var rdate = date.replace(/-/g,'/');
-        return util.dateFormatFmt( new Date(rdate), "MM-dd");  
+        return util.dateFormatFmt( new Date(rdate), "MM-dd");
       });
       template.helper("gstatus", function(status){
-        return util.MATCHSTATUSCLASS[status];  
+        return util.MATCHSTATUSCLASS[status];
       });
       template.helper("gname", function(status){
-        return util.MATCHSTATUS[status];  
+        return util.MATCHSTATUS[status];
       });
       template.helper("gscore", function(obj){
         if(obj.status == 1){
@@ -232,7 +232,7 @@ udvDefine("matchbar",function(require,exports,module){
 
     /**
      *调用定时器
-     */ 
+     */
     MatchLoader.init();
     window.MatchLoader = MatchLoader;
   }).call(window, jQuery);
@@ -303,7 +303,7 @@ udvDefine("choicedate",function (require, exports, module) {
 
 // 购买小炮预测
 udvDefine("purchase",function (require, exports, module) {
-  window.$mask = $("#mask"); 
+  window.$mask = $("#mask");
   // 所有弹出层容器
   window.$popup_box = $(".popup_box");
   // 支付容器
@@ -330,7 +330,7 @@ udvDefine("purchase",function (require, exports, module) {
   });
 
   $("#smart_main").on("click", ".btn_purchase", function(){
-    //判断登录状态      
+    //判断登录状态
     var isLogin = checkLogin();
     if(!isLogin){
       middleLogin();
@@ -422,7 +422,7 @@ udvDefine("echarts",function (require, exports, module) {
   window.getMatchHighSpeed_z_dx_1 = function(){};
   window.getMatchHighSpeed_z_dx_2 = function(){};
   window.getMatchHighSpeed_z_dx_3 = function(){};
-  
+
   var curdate = __curdate || util.dateFormatFmt( new Date(), "yyyy-MM-dd");
   var match_num=0;
   window.match_data={
@@ -551,8 +551,8 @@ udvDefine("echarts",function (require, exports, module) {
         url='http://odds.sports.sina.com.cn/odds/matchodds/asiaIni?id='+odds_id+'&format=json';
         pankouIdx = 0;
       }
-      
-      $.ajax({  
+
+      $.ajax({
         url:url,
         dataType:'jsonp',
         data: {},
@@ -594,7 +594,7 @@ udvDefine("echarts",function (require, exports, module) {
       var matchId = cdata.livecast_id;
       var $container = $("#smart_"+matchId);
       var gameType = $("#smart_mtype_"+matchId).find('.selected').data("type");
-      $.ajax({  
+      $.ajax({
         // url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=football&_sport_s_=opta&_sport_a_=getMatchHighSpeed&id='+matchId,
         url:'http://odds.sports.sina.com.cn/fbmatch/getMatchHighSpeed?id='+matchId+'&format=json',
         dataType:'jsonp',
@@ -626,7 +626,7 @@ udvDefine("echarts",function (require, exports, module) {
               if(util.payment.getwbid() && noswitch != '_no'){
                 util.payment.payStep0(util.wbId, matchId, gameType);
               }
-              
+
             } else if(rdata.status == 2){
               // 赛中 60s持续刷新显示
               // http://wiki.intra.sina.com.cn/pages/viewpage.action?pageId=101711880 按比赛ID获取已开放预测结果
@@ -683,7 +683,7 @@ udvDefine("echarts",function (require, exports, module) {
                   smart.smart_match_status(idx);
                 }, 60000);
               }
-              
+
             } else {
               // 赛后  获取分析数据   不需要登录  得到准输背景
               // http://wiki.intra.sina.com.cn/pages/viewpage.action?pageId=101711880 按比赛ID获取已开放预测结果
@@ -790,7 +790,7 @@ udvDefine("echarts",function (require, exports, module) {
     },
     chart_radar_a1: function(idx){
       var data = match_data.a1[idx];
-      
+
       var host = data.host;
       var guest = data.away;
       var hname = data.team1;
@@ -902,7 +902,7 @@ udvDefine("echarts",function (require, exports, module) {
         return;
       }
       var cdata = match_data.data[idx];
-      $.ajax({  
+      $.ajax({
         url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team1Id+'&team2='+cdata.Team2Id+'&limit=10',
         dataType:'jsonp',
         data: {},
@@ -1012,7 +1012,7 @@ udvDefine("echarts",function (require, exports, module) {
         return;
       }
       var cdata = match_data.data[idx];
-      $.ajax({  
+      $.ajax({
         url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team1Id+'&limit=6',
         dataType:'jsonp',
         data: {},
@@ -1041,7 +1041,7 @@ udvDefine("echarts",function (require, exports, module) {
         for(var i=0,len=data.length; i<len; i++){
           result += ('／'+data[i].win_lose);
         }
-        return result.slice(1);  
+        return result.slice(1);
       });
       var $container = $("#smart_box_0"+idx).find(".smart_chart_a3");
       var html = template('smart_chart_a3_tmp', {idx: idx,data:match_data.a3[idx]});
@@ -1101,7 +1101,7 @@ udvDefine("echarts",function (require, exports, module) {
               {value: data.lose_percent, name:lose},
               {value: data.draw_percent, name:equal},
               {
-                value:'100', 
+                value:'100',
                 name:'',
                 itemStyle: {
                   normal : {
@@ -1137,7 +1137,7 @@ udvDefine("echarts",function (require, exports, module) {
         return;
       }
       var cdata = match_data.data[idx];
-      $.ajax({  
+      $.ajax({
         url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team2Id+'&limit=6',
         dataType:'jsonp',
         data: {},
@@ -1166,7 +1166,7 @@ udvDefine("echarts",function (require, exports, module) {
         for(var i=0,len=data.length; i<len; i++){
           result += ('／'+data[i].win_lose);
         }
-        return result.slice(1);  
+        return result.slice(1);
       });
       var $container = $("#smart_box_0"+idx).find(".smart_chart_a4");
       var html = template('smart_chart_a4_tmp', {idx: idx,data:match_data.a4[idx]});
@@ -1226,7 +1226,7 @@ udvDefine("echarts",function (require, exports, module) {
               {value: data.lose_percent, name:lose},
               {value: data.draw_percent, name:equal},
               {
-                value:'100', 
+                value:'100',
                 name:'',
                 itemStyle: {
                   normal : {
@@ -1262,7 +1262,7 @@ udvDefine("echarts",function (require, exports, module) {
         return;
       }
       var cdata = match_data.data[idx];
-      $.ajax({  
+      $.ajax({
         url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team2Id+'&limit=6',
         dataType:'jsonp',
         data: {},
@@ -1291,7 +1291,7 @@ udvDefine("echarts",function (require, exports, module) {
         for(var i=0,len=data.length; i<len; i++){
           result += ('／'+data[i].win_lose);
         }
-        return result.slice(1);  
+        return result.slice(1);
       });
       var $container = $("#smart_box_0"+idx).find(".smart_hot");
       var html = template('smart_chart_a5_tmp', {idx: idx,data:match_data.a5[idx]});
@@ -1441,7 +1441,7 @@ udvDefine("echarts",function (require, exports, module) {
     								arr.userName = data1.result.data[arr.uid][0].user.screen_name;
     								temData.push(arr);
     							}
-    							//若是通过微博id无法获取用户信息将不显示微博                  
+    							//若是通过微博id无法获取用户信息将不显示微博
     						});
     						data.result.data = temData;
     						template.helper("weibo_distanse", function (dt) {
@@ -1528,20 +1528,20 @@ udvDefine("echarts",function (require, exports, module) {
           //         "url": ""//个人页
           //       }
           //     ]
-          //   } 
+          //   }
           // };
           var result = data.result;
           var status = result && result.status;
           if(status && status.code == "0"){
             // render
             template.helper("percent", function(percent){
-              return Math.round((percent-0)*100/(result.total-0)) + "%";  
+              return Math.round((percent-0)*100/(result.total-0)) + "%";
             });
             template.helper("percent1", function(p1,p2){
-              return Math.round((p1-0)*100/(p2-0)) + "%";  
+              return Math.round((p1-0)*100/(p2-0)) + "%";
             });
             template.helper("width", function(total){
-              return total*152 + "px";  
+              return total*152 + "px";
             });
             var $container = $("#smart_box_0"+idx).find(".smart_forecast");
             var rdata = result.data;
@@ -1599,7 +1599,7 @@ udvDefine("echarts",function (require, exports, module) {
         // self.render();
         // return;
       }
-      $.ajax({  
+      $.ajax({
         // url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=livecast&_sport_a_=dateMatches&LeagueType=9&begin='+curdate+'&end='+curdate,
         url:'http://odds.sports.sina.com.cn/fbmatch/dayMapMatches?date='+curdate+'&timespan=0&format=json',
         dataType:'jsonp',
@@ -1635,7 +1635,7 @@ udvDefine("echarts",function (require, exports, module) {
         //   // 英格兰国旗不对  暂时用小国旗
         //   return 'http://www.sinaimg.cn/lf/sports/logo85/922.png';
         // }
-        return 'http://n.sinaimg.cn/sports/0d703a2a/20160513/'+flag+'.png';  
+        return 'http://n.sinaimg.cn/sports/0d703a2a/20160513/'+flag+'.png';
       });
       var html = template('sidebar_tmp', match_data);
       $("#sidebar")[0].innerHTML = html;
