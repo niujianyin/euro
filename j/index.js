@@ -124,7 +124,8 @@ udvDefine("matchbar",function(require,exports,module){
      * 1分钟（60 * 1000）请求一次接口
      */
     var MatchLoader = new timeLoader({
-      url: 'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=livecast&_sport_a_=dateMatches&begin='+begindate+'&LeagueType=9&timespan='+timespan,
+      url:'//api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=livecast&_sport_a_=dateMatches&begin='+begindate+'&LeagueType=9&timespan='+timespan,
+      //url: 'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=livecast&_sport_a_=dateMatches&begin='+begindate+'&LeagueType=9&timespan='+timespan,
       param: '',
       interval: 60 * 1000,
       callback: function(data){
@@ -903,7 +904,8 @@ udvDefine("echarts",function (require, exports, module) {
       }
       var cdata = match_data.data[idx];
       $.ajax({
-        url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team1Id+'&team2='+cdata.Team2Id+'&limit=10',
+        url: 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team1Id+'&team2='+cdata.Team2Id+'&limit=10',
+        //url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team1Id+'&team2='+cdata.Team2Id+'&limit=10',
         dataType:'jsonp',
         data: {},
         cache: true,
@@ -1013,7 +1015,8 @@ udvDefine("echarts",function (require, exports, module) {
       }
       var cdata = match_data.data[idx];
       $.ajax({
-        url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team1Id+'&limit=6',
+        url: 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team1Id+'&limit=6',
+        //url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team1Id+'&limit=6',
         dataType:'jsonp',
         data: {},
         cache: true,
@@ -1138,7 +1141,8 @@ udvDefine("echarts",function (require, exports, module) {
       }
       var cdata = match_data.data[idx];
       $.ajax({
-        url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team2Id+'&limit=6',
+        url: 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team2Id+'&limit=6',
+        //url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team2Id+'&limit=6',
         dataType:'jsonp',
         data: {},
         cache: true,
@@ -1263,7 +1267,8 @@ udvDefine("echarts",function (require, exports, module) {
       }
       var cdata = match_data.data[idx];
       $.ajax({
-        url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team2Id+'&limit=6',
+        url: 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team2Id+'&limit=6',
+        //url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1='+cdata.Team2Id+'&limit=6',
         dataType:'jsonp',
         data: {},
         cache: true,

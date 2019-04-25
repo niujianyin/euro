@@ -615,7 +615,8 @@ var ypObj = {
   render05: function(){
     var curdate = __curdate || '2016-06-11';
     $.ajax({  
-      url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=livecast&_sport_a_=dateMatches&LeagueType=9&begin='+curdate+'&end='+curdate,
+      url:'http://odds.sports.sina.com.cn/fbmatch/dayMapMatches?date='+curdate+'&timespan=0&format=json',
+      //url:'http://platform.sina.com.cn/sports_all/client_api?app_key=3207392928&_sport_t_=livecast&_sport_a_=dateMatches&LeagueType=9&begin='+curdate+'&end='+curdate,
       dataType:'jsonp',
       data: {},
       cache: true,

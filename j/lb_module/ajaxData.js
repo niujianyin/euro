@@ -54,7 +54,9 @@ var ajaxData = (function () {
       // var team1 = team1;
       // var team2 = team2;
       var limit = limit;
-      var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3633771828&%20_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&team2=' + team2 + '&limit=' + limit;
+      //var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3633771828&%20_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&team2=' + team2 + '&limit=' + limit;
+
+      var dataUrl = 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&team2=' + team2 + '&limit=' + limit;
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
@@ -78,7 +80,9 @@ var ajaxData = (function () {
     },
     HnearVs: function (team1, limit, callback) {
       // var limit = limit;
-      var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3633771828&%20_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&limit=' + limit;
+      //var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3633771828&%20_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&limit=' + limit;
+     
+      var dataUrl = 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&limit=' + limit;
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
@@ -102,7 +106,9 @@ var ajaxData = (function () {
     },
     GnearVs: function (team1, limit, callback) {
       // var limit = limit;
-      var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3633771828&%20_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&limit=' + limit;
+      //var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3633771828&%20_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&limit=' + limit;
+
+      var dataUrl = 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=teamRecentMatches&team1=' + team1 + '&limit=' + limit;
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
@@ -125,7 +131,8 @@ var ajaxData = (function () {
         })
     },
     futureGame: function (team1, callback) {
-      var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3633771828&_sport_t_=livecast&_sport_a_=getTeamPreMatches&id=' + team1;
+      // var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3633771828&_sport_t_=livecast&_sport_a_=getTeamPreMatches&id=' + team1;
+      var dataUrl = 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=livecast&_sport_a_=getTeamPreMatches&id=' + team1
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
@@ -149,7 +156,8 @@ var ajaxData = (function () {
     },
     news: function (team1, callback) {
       // var team1 = team1;
-      var dataUrl = 'http://platform.sina.com.cn/sports_client/news?app_key=3633771828&team_id=' + team1 + '&level=1,2,3&news_type=1,2,3&len=5&fields=title,url,pub_time';
+      // var dataUrl = 'http://platform.sina.com.cn/sports_client/news?app_key=3633771828&team_id=' + team1 + '&level=1,2,3&news_type=1,2,3&len=5&fields=title,url,pub_time';
+      var dataUrl = 'http://client.mix.sina.com.cn/api/sports_news/news?team_id=' + team1 + '&level=1,2,3&news_type=1,2,3&len=5&fields=title,url,pub_time';
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
@@ -174,7 +182,8 @@ var ajaxData = (function () {
     // 欧赔
     getEurope: function (matchId, callback) {
       // var matchId = matchId || '3453592';
-      var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3979320659&_sport_t_=Odds&_sport_a_=euroIniNewData&id=' + matchId;
+      // var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3979320659&_sport_t_=Odds&_sport_a_=euroIniNewData&id=' + matchId;
+      var dataUrl = 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=euroIniNewData&id=' + matchId;
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
@@ -199,7 +208,8 @@ var ajaxData = (function () {
     getEuropeSimple: function (matchId, bid, callback) {
       // var matchId = matchId ;
       // var bid = bid;
-      var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3979320659&_sport_t_=Odds&_sport_a_=euroMakerDataByMatch&id=' + matchId + '&bid=' + bid;
+      // var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3979320659&_sport_t_=Odds&_sport_a_=euroMakerDataByMatch&id=' + matchId + '&bid=' + bid;
+      var dataUrl = 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=euroMakerDataByMatch&id=' + matchId + '&bid=' + bid;
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
@@ -224,7 +234,8 @@ var ajaxData = (function () {
     // 亚赔
     getAsia: function (matchId, callback) {
       var matchId = matchId || '3453592';
-      var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3979320659&_sport_t_=Odds&_sport_a_=AsiaIniNewData&id=' + matchId;
+      // var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3979320659&_sport_t_=Odds&_sport_a_=AsiaIniNewData&id=' + matchId;
+      var dataUrl = 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=AsiaIniNewData&id=' + matchId;
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
@@ -249,7 +260,7 @@ var ajaxData = (function () {
     getAsiaSimple: function (matchId, bid, callback) {
       var matchId = matchId;
       var bid = bid;
-      var dataUrl = 'http://platform.sina.com.cn/sports_all/client_api?app_key=3979320659&_sport_t_=Odds&_sport_a_=asiaMakerDataByMatch&id=' + matchId + '&bid=' + bid;
+      var dataUrl = 'http://api.sports.sina.com.cn/?p=sports&s=sport_client&a=index&_sport_t_=Odds&_sport_a_=asiaMakerDataByMatch&id=' + matchId + '&bid=' + bid;
       $.ajax({
         url: dataUrl,
         dataType: 'jsonp',
